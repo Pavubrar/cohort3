@@ -1,0 +1,19 @@
+const functions = {
+    
+    assertEqual: (in1,in2) => {
+    
+       
+            const message ="*** the two values are not same:" + "\n";
+            let combine;
+            if (in1 === in2){
+             return  "true";
+        }
+        else {
+            combine = "p1-->" + in1  + "\n" + "p2-->" + in2;
+             console.log( message + combine);
+             return "false";
+        }
+        
+    }
+    };
+    export default functions;
