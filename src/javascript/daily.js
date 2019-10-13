@@ -14,6 +14,17 @@ const functions = {
              return "false";
         }
         
-    }
-    };
-    export default functions;
+    },
+    
+
+
+   makeEmailArr: (name) =>{
+       let first= name[0].toLowerCase();
+       let last = name[1].toLowerCase();
+   
+    return `${first}.${last}@evolveu.ca`;
+   }
+
+ };
+ 
+ export default functions;
