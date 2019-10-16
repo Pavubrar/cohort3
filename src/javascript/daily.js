@@ -1,4 +1,12 @@
 const functions = {
+
+    makeEmailObject: obj =>{
+        let first= obj.fname.toLowerCase();
+        let last = obj.lname.toLowerCase();
+    
+     return `${first}.${last}@evolveu.ca`;
+    }, 
+    
     
     assertEqual: (in1,in2) => {
     
@@ -23,8 +31,8 @@ const functions = {
        let last = name[1].toLowerCase();
    
     return `${first}.${last}@evolveu.ca`;
-   }
-
+   },
+  
  };
  
  export default functions;

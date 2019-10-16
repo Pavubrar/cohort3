@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+</head>
+<script type="text/javascript"src= "cal.js"> 
+/*function dis(val) 
+         { 
+             document.getElementById("result").value+=val 
+         } 
+           
+         //function that evaluates the digit and return result 
+         function solve() 
+         { 
+             let x = document.getElementById("result").value 
+             let y = eval(x) 
+             document.getElementById("result").value = y 
+         } 
+           
+         //function that clear the display 
+         function clr() 
+         { 
+             document.getElementById("result").value = "" 
+         } 
+
+function backspace(){
+    var prevalue=myform.display.value;
+    myform.display.value=prevalue.substr(0,prevalue.length-1);
+
+}*/
+    </script>
+<body>
+    <form name ="myform">
+        <input type = "text" id="result"> <br>
+        <input type="button" name="btnClear" value="AC" onclick="clr()">
+        <input type="button" name="btnAdd" value="+" onclick="dis('+')">
+        <input type="button" name="btnSubtract" value="-" onclick="dis('-')">
+        <input type="button" name="btnMultiply" value="*" onclick="dis('*')">
+        <input type="button" name="btnDivide" value="/" onclick="dis('/')">
+       <!-- <input type="button" name="btnDelete" value="DEL"onclick="backspace()">-->
+        <input type="button" name="btnEqual" value="=" onclick="solve()">
+    </form>
+    
+</body>
+</html>
