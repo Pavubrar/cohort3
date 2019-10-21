@@ -1,4 +1,26 @@
 import functions from './daily'
+
+test("email builder for company", () => {
+	const data = {
+		staff: [
+			{ fname: "Jane", lname: "Smith", balance: 10 },
+			{ fname: "Liam", lname: "Henry", balance: 1000 },
+			{ fname: "Emma", lname: "Jones", balance: 1330 },
+			{ fname: "Olivia", lname: "Notly", balance: 310 },
+			{ fname: "Noah", lname: "Ho", balance: 503 },
+			{ fname: "William", lname: "Lee", balance: 520 },
+			{ fname: "Benjamin", lname: "Amis", balance: 150 }
+		],
+		company: "EvolveU",
+		city: "Calgary",
+		prov: "Alberta"
+	},
+	const staffEmail = functions.loopStaff(data.staff);
+	expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
+    expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
+});
+    
+
 // OCT 15-16 2019
 test('sort numbers in ascending order', () => {
     expect(functions.sortAscending([40,20,35,3])).toEqual([3,20,35,40]); // Consider the edge cases
@@ -72,6 +94,3 @@ test('Check 2 parameters', () => {
     expect(functions.assertEqual("2",2)).toBe("false");
     expect(functions.assertEqual("This value","This value")).toBe("true");
 });
-
-
-
