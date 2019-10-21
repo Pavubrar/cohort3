@@ -87,7 +87,7 @@ sum+=i;
 }
 return sum;
 },
-// OCT 11
+// 2019-10-11
    makeEmailObject: obj =>{
         let first= obj.fname.toLowerCase();
         let last = obj.lname.toLowerCase();
@@ -95,7 +95,7 @@ return sum;
      return `${first}.${last}@evolveu.ca`;
     }, 
     
-    // OCT &
+    // 2019-10-7
   assertEqual: (in1,in2) => {
     
        
