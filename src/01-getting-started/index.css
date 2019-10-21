@@ -7,9 +7,12 @@ h5,
 h6 {
     font-family: "Lato", sans-serif;
 }
-
+.w3-top {
+    font-weight: bold !important;
+}
 body,
-html {
+html 
+input {
     height: 100%;
     color: #777;
     line-height: 1.8;
@@ -59,6 +62,9 @@ html {
 .w3-hover-opacity {
     cursor: pointer;
 }
+.w3-xxlarge {
+    color: greenyellow;
+}
 
 #idNumber {
     border: 0;
@@ -75,4 +81,59 @@ html {
         background-attachment: scroll;
         min-height: 400px;
     }
+}
+.w3-button {
+    outline: none;
+}
+#calc-input-1,
+#calc-input-2,
+#tax-input,
+#arr-input,
+#obj-input{
+    width: 250px;
+}
+#tax-display-val,
+#calc-display-val,
+#arr-display-val,
+#obj-display-val {
+	/* height: 20px; */
+	width: 500px;
+	color: greenyellow;
+	text-align: center;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	border-top: 1px solid gray;
+	font-size: 1.5rem;
+	background-color: #000000;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: 6px;
+	border-radius: 9px 9px 9px 9px;
+	/* margin-right: 100px; */
+}
+.row {
+	display: table;
+	table-layout: fixed;
+}
+.column {
+	display: table;
+}
+.column-btn {
+	display: table-cell;
+}
+
+#calc-disp-parent,
+#arr-disp-parent {
+	margin-left: calc(50% - 300px);
+}
+
+#tax-disp-parent,
+#obj-disp-parent {
+	margin-left: calc(50% - 250px);
+}
+.w3-teal {
+	height: 61px;
+	width: 100px;
+	font-size: 1.5rem;
+	padding: 6px;
 }
