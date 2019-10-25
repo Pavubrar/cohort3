@@ -18,7 +18,7 @@ test('check email',() =>{
     expect(functions.emailBuilder("l","shumlich")).toBe("l.shumlich@evolveu.ca");
 });
 test('emailBuilder test', () => {
-    expect(functions.emailBuilder('larry', 'shumlich')).toEqual('l.shumlich@evolveu.ca');
+    expect(functions.emailBuilder('l', 'shumlich')).toBe('l.shumlich@evolveu.ca');
 });
 
 

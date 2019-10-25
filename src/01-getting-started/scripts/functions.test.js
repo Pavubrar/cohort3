@@ -18,7 +18,8 @@ test("testing calculator function", () => {
 	expect(functions.calculatorAdd(30, 10)).toBe(40);
 	expect(functions.calculatorSub(30, 10)).toBe(20);
 	expect(functions.calculatorMul(10, 5)).toBe(50);
-	expect(functions.calculatorDvd(10, 5)).toBe(2);
+    expect(functions.calculatorDvd(10, 5)).toBe(2);
+   
 });
 
 test("testing tax calc", () => {

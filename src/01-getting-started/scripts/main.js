@@ -23,3 +23,32 @@ document.getElementById("btn-arr-clear").addEventListener("click", functions.onC
 
 document.getElementById("btn-obj-lookup").addEventListener("click", functions.onObjLookupClicked);
 
+onAddButtonClicked: () => {
+    let addResult = functions.calculatorAdd(Number(inputOne.value), Number(inputTwo.value));
+    calcDisplayElement.textContent = `the sum of ${inputOne.value} and ${inputTwo.value} is ${addResult}`;
+    inputOne.value = "";
+    inputTwo.value = "";
+ },
+  
+onSubButtonClicked: () => {
+    let subResult = functions.calculatorSub(Number(inputOne.value), Number(inputTwo.value));
+    calcDisplayElement.textContent = `the difference between ${inputOne.value} and ${inputTwo.value} is ${subResult}`;
+    inputOne.value = "";
+    inputTwo.value = "";
+ },
+onMulButtonClicked: () => {
+    let mulResult = functions.calculatorMul(Number(inputOne.value), Number(inputTwo.value));
+    calcDisplayElement.textContent = `the product of ${inputOne.value} and ${inputTwo.value} is ${mulResult}`;
+    inputOne.value = "";
+    inputTwo.value = "";
+ },
+onDvdButtonClicked: () => {
+    let dvdResult = functions.calculatorDvd(Number(inputOne.value), Number(inputTwo.value));
+    calcDisplayElement.textContent = `the quotient of ${inputOne.value} and ${inputTwo.value} is ${dvdResult}`;
+    inputOne.value = "";
+    inputTwo.value = "";
+ },
+onClearCalcClicked: () => {
+    let displayVal = "cleared...";
+    calcDisplayElement.textContent = displayVal;
+ },

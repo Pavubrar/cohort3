@@ -49,11 +49,11 @@ const functions = {
         }
         return getnum;
     },
-    forInLoop: (object) => {
-        var text ="parveen";
+    forInLoop: object => {
+        var text ="parveen kaur";
         var x;
         for (let x in Object){
-            text += Object[x] + "kaur";
+            text += Object[x] + " ";
         }
         text = text.trim();
         return text;

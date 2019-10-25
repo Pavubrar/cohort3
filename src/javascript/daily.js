@@ -1,30 +1,15 @@
 // 2019-10-16 
 const functions = {
     // 21-Oct-2019 Daily Exercise
-	loopStaff: arr => {
-		const data = {
-			staff: [
-				{ fname: "Jane", lname: "Smith", balance: 10 },
-				{ fname: "Liam", lname: "Henry", balance: 1000 },
-				{ fname: "Emma", lname: "Jones", balance: 1330 },
-				{ fname: "Olivia", lname: "Notly", balance: 310 },
-				{ fname: "Noah", lname: "Ho", balance: 503 },
-				{ fname: "William", lname: "Lee", balance: 520 },
-				{ fname: "Benjamin", lname: "Amis", balance: 150 }
-			],
-			company: "EvolveU",
-			city: "Calgary",
-			prov: "Alberta"
-		};
-		let staffEmail = data.staff;
+    loopStaff: arr => {
 		let staffEmail = [];
 		arr.forEach(function(emailObj) {
-			let email = functions.makeEmailObj(emailObj);
+			let email = functions.makeEmailObject(emailObj);
 			staffEmail.push(email);
 		});
-		return staffEmail;
-	},
-// 2019-10-16
+        return staffEmail;
+    },
+// 2019-10-20
 
     sortAscending: arr => {
         arr.sort((a,b) => a-b);
