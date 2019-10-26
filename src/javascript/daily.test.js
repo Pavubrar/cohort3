@@ -1,4 +1,5 @@
 import functions from './daily'
+ 
 const data = {
     staff: [
         { fname: "Jane", lname: "Smith", balance: 10 },
@@ -13,6 +14,41 @@ const data = {
     city: "Calgary",
     prov: "Alberta"
 };
+
+// 25-Oct-2019 Daily Exercises
+test("testing loopStaffForEach using forEach callback", () => {
+	const staffEmail = functions.loopStaffForEach(data.staff);
+	expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
+	expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
+	expect(staffEmail[6]).toEqual("benjamin.amis@evolveu.ca");
+});
+
+test("testing loopStaffMap using map callback", () => {
+	const staffEmail = functions.loopStaffMap(data.staff);
+	expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
+	expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
+	expect(staffEmail[6]).toEqual("benjamin.amis@evolveu.ca");
+});
+// 24-Oct-2019 Daily Exercises
+test ("check LoopStaffOf using forOf", ()=> {
+    const staffEmail = functions.loopStaffOf(data.staff);
+    expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
+    expect(staffEmail[1]).toEqual("liam.henry@evolveu.ca");
+	expect(staffEmail[4]).toEqual("noah.ho@evolveu.ca");
+	expect(staffEmail[5]).toEqual("william.lee@evolveu.ca");
+});
+
+test("testing loopStaffIn using for-in", () => {
+	const staffEmail = functions.loopStaffIn(data.staff);
+	expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
+	expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
+	expect(staffEmail[6]).toEqual("benjamin.amis@evolveu.ca");
+});
+
+
+
+// 21-Oct-2019 Daily Exercises
+
 test('email builder for company', () => {
     const staffEmail = functions.loopStaff(data.staff);
     expect(staffEmail[0])

@@ -3,11 +3,8 @@ const functions = {
     helloworld: () => {
         return "Hello World!";
     },
-    sum: (p1, p2) => {
-        
-    
-        return 3;
-
+    sum: (input1,input2) => {
+        return input1 + input2;
     }
 }
-export default functions
+export default functions;

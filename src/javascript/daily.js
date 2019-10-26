@@ -1,5 +1,35 @@
-// 2019-10-16 
+
 const functions = {
+   
+ // 2019 - 10 -25
+
+ loopStaffForEach: arr => {
+    let staffEmail = [];
+    arr.forEach(arrayElement => staffEmail.push(functions.makeEmailObject(arrayElement)));
+    return staffEmail;
+},
+
+loopStaffMap: arr => {
+    let staffEmail = [];
+    arr.map(element => staffEmail.push(functions.makeEmailObject(element)));
+    return staffEmail;
+},
+ loopStaffOf: arr => {
+    let staffEmail = [];
+    for (let elem of arr) {
+        let email = functions.makeEmailObject(elem);
+        staffEmail.push(email);
+    }
+    return staffEmail;
+},
+loopStaffIn: arr => {
+    let staffEmail = [];
+    for (let i in arr) {
+        let email = functions.makeEmailObject(arr[i]);
+        staffEmail.push(email);
+    }
+    return staffEmail;
+},
     // 21-Oct-2019 Daily Exercise
     loopStaff: arr => {
 		let staffEmail = [];
