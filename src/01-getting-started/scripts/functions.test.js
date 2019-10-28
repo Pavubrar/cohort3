@@ -44,3 +44,4 @@ test("testing object functions", () => {
 	expect(functions.canadaProv("ns")).toBe("Nova Scotia");
 	expect(functions.canadaProv("n5")).toBe("n5 is not a province");
 });
+

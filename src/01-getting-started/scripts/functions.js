@@ -1,14 +1,4 @@
-let inputOne = document.querySelector("#calc-input-1");
-let inputTwo = document.querySelector("#calc-input-2");
-let calcDisplayElement = document.getElementById("calc-display-val");
 let tax = 0;
-let taxInput = document.querySelector("#tax-input");
-let taxDisplayVal = document.getElementById("tax-display-val");
-
-let numArray = [];
-let arrInput = document.querySelector("#arr-input");
-let arrDisplayVal = document.querySelector("#arr-display-val");
-
 const canadaProvincesObj = {
 	ab: "Alberta",
 	bc: "British Columbia",
@@ -26,9 +16,6 @@ const canadaProvincesObj = {
 };
 let objResult = "";
 let newStr = "";
-let objDisplayVal = document.querySelector("#obj-display-val");
-let objInput = document.querySelector("#obj-input");
-
 const functions = {
     
     size: (num) => {
@@ -61,39 +48,13 @@ const functions = {
     
 
 
- taxes: income => {
-    const taxBracket_01 = 47630,
-        taxBracket_02 = 95259,
-        taxBracket_03 = 147667,
-        taxBracket_04 = 210371;
-    if (income <= taxBracket_01) {
-        tax = (income * 0.15).toFixed(2);
-    } else if (income > taxBracket_01 && income <= taxBracket_02) {
-        tax = (taxBracket_01 * 0.15 + (income - taxBracket_01) * 0.205).toFixed(2);
-    } else if (income > taxBracket_02 && income <= taxBracket_03) {
-        tax = (taxBracket_01 * 0.15 + (taxBracket_02 - taxBracket_01) * 0.205 + (income - taxBracket_02) * 0.26).toFixed(2);
-    } else if (income > taxBracket_03 && income <= taxBracket_04) {
-        tax = (
-            taxBracket_01 * 0.15 +
-            (taxBracket_02 - taxBracket_01) * 0.205 +
-            (taxBracket_03 - taxBracket_02) * 0.26 +
-            (income - taxBracket_03) * 0.29
-        ).toFixed(2);
-    } else if (income > taxBracket_04) {
-        tax = (
-            taxBracket_01 * 0.15 +
-            (taxBracket_02 - taxBracket_01) * 0.205 +
-            (taxBracket_03 - taxBracket_02) * 0.26 +
-            (taxBracket_04 - taxBracket_03) * 0.29 +
-            (income - taxBracket_04) * 0.33
-        ).toFixed(2);
-    }
-    return Number(tax);
-},
-onTaxButtonClicked: () => {
-    let taxResult = functions.taxes(Number(taxInput.value));
-    taxDisplayVal.textContent = `your 2019 taxes would be $${taxResult.toFixed(2)}`;
-    taxInput.value = "";
+ taxes:(num) => {
+    if (num < 0) return 0;
+    if (num <= 47630) return num * 0.15;
+    if (num <= 95259) return ((num - 47630) * 0.205) + 7145;
+    if (num <= 147667) return ((num - 95259) * 0.26) + 16908;
+    if (num <= 210371) return ((num - 147667) * 0.29) + 30535;
+    return ((num - 210371) * 0.33) + 48719;
 },
 arrayAdd: num => {
     if (typeof num === "number") {
@@ -111,85 +72,27 @@ arrayClear: arr => {
     arr = null;
     return arr;
 },
-onAddToArrayClicked: () => {
-    let arrInputVal = parseFloat(arrInput.value);
-    if (typeof arrInputVal === "number" && isNaN(arrInputVal) !== true) {
-        numArray.push(arrInputVal);
-        arrDisplayVal.textContent = `${arrInputVal} was added to your array`;
-    } else {
-        arrInputVal = arrInput.value;
-        arrDisplayVal.textContent = `"${arrInputVal}" is not a number`;
-    }
-    console.log("add clicked", numArray);
-    arrInput.value = "";
-    return numArray;
-},
-onShowArrayClicked: () => {
-    console.log(`show clicked`, numArray);
-    arrDisplayVal.textContent = `your array is ==> "${numArray.join(", ")}"`;
-    return numArray;
-},
-onTotalArrayClicked: () => {
-    let arrTotal = numArray.reduce((accum, curr) => accum + curr, 0);
-    console.log(`total clicked`, arrTotal);
-    arrDisplayVal.textContent = `your array total is ==> ${arrTotal}`;
-    return arrTotal;
-},
-onClearArrayClicked: () => {
-    arrDisplayVal.textContent = "cleared arr...";
-},
-canadaProv: str => {
-    newStr = str.toLowerCase();
-    if (newStr === "ab") {
-        objResult = canadaProvincesObj.ab;
-        return objResult;
-    } else if (newStr === "bc") {
-        objResult = canadaProvincesObj.bc;
-        return objResult;
-    } else if (newStr === "mb") {
-        objResult = canadaProvincesObj.mb;
-        return objResult;
-    } else if (newStr === "nb") {
-        objResult = canadaProvincesObj.nb;
-        return objResult;
-    } else if (newStr === "nl") {
-        objResult = canadaProvincesObj.nl;
-        return objResult;
-    } else if (newStr === "ns") {
-        objResult = canadaProvincesObj.ns;
-        return objResult;
-    } else if (newStr === "nt") {
-        objResult = canadaProvincesObj.nt;
-        return objResult;
-    } else if (newStr === "nu") {
-        objResult = canadaProvincesObj.nu;
-        return objResult;
-    } else if (newStr === "on") {
-        objResult = canadaProvincesObj.on;
-        return objResult;
-    } else if (newStr === "pe") {
-        objResult = canadaProvincesObj.pe;
-        return objResult;
-    } else if (newStr === "qc") {
-        objResult = canadaProvincesObj.qc;
-        return objResult;
-    } else if (newStr === "sk") {
-        objResult = canadaProvincesObj.sk;
-        return objResult;
-    } else if (newStr === "yt") {
-        objResult = canadaProvincesObj.yt;
-        return objResult;
-    }
-    return `${newStr} is not a province`;
-},
-onObjLookupClicked: () => {
-    objResult = functions.canadaProv(objInput.value);
-    console.log(`lookup clicked`);
-    objDisplayVal.textContent = `${objResult}`;
-    return objResult;
-  }
-};
 
+lookUp: (pCode) => {
+        const dict = {
+            ab: "Alberta",
+            bc: "British Columbia",
+            mb: "Manitoba",
+            nb: "New Brunswick",
+            nl: "Newfoundland and Labrador",
+            ns: "Nova Scotia",
+            nt: "Northwest Territories",
+            nu: "Nunavut",
+            on: "Ontario",
+            pe: "Prince Edward Island",
+            qc: "Quebec",
+            sk: "Saskatchewan",
+            yt: "Yukon",
+        }
+        return dict[pCode];
+    }
+
+};
 
 
 /*
