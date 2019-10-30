@@ -23,6 +23,9 @@ idDvd.addEventListener("click", () => {
     let input2 = Number(idinput2.value);
     idAnswer.value = functions.dvd(input1,input2);
 });
+idClr.addEventListener("click", () => {
+    idAnswer.value = functions.clear();
+});
 // ----Taxes----
 idTaxCalc.addEventListener("click", ()=>{
     idTax.textContent = "$" + functions.taxes(idIncome.value);
@@ -47,3 +50,9 @@ idTotal.addEventListener('click', () => {
      functions.clearArr(currentArray);
      idMessageArea.textContent = "Array cleared";
  });
+
+ /*Working with Dictionaries*/
+ idLookUp.addEventListener('click', () => {
+    console.log(functions.lookUp(idPropInput.value));
+    idMessageDict.textContent = functions.lookUp(idPropInput.value);
+});

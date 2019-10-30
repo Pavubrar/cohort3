@@ -16,6 +16,11 @@ const functions = {
     dvd: (input1,input2) => {
         return input1 / input2;
     }, 
+    clear: () => {
+     //let clearOutput = 
+     //idAnswer.textContent=0 ;
+       return 0;
+    },
     //---Canadian Taxes---   
     taxes: (num) => {
         if(num < 0) return 0;
@@ -31,6 +36,9 @@ const functions = {
         arr.push(ele);
         return arr;
     },
+    /*arrayShow: arr => {
+    return `${arr.join()}`;
+},*/
 
     totalArr: (arr) => {
         let total = 0;
@@ -45,6 +53,24 @@ const functions = {
         arr.length =0;
         return arr;
     },
+    lookUp: (pCode) => {
+        const dict = {
+            ab: "Alberta",
+            bc: "British Columbia",
+            mb: "Manitoba",
+            nb: "New Brunswick",
+            nl: "Newfoundland and Labrador",
+            ns: "Nova Scotia",
+            nt: "Northwest Territories",
+            nu: "Nunavut",
+            on: "Ontario",
+            pe: "Prince Edward Island",
+            qc: "Quebec",
+            sk: "Saskatchewan",
+            yt: "Yukon",
+        }
+        return dict[pCode];
+    }
 
 
 }

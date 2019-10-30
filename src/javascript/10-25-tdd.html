@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Calculator</title>
 </head>
 <body>
@@ -12,13 +13,15 @@
    <input id="idinput1" type="text" placeholder=" enter first # "> 
    <input id="idinput2" type="text" placeholder="enter second #"> <br>
     Answer: <input id="idAnswer" type="text"> <br>
-    
+    </div>
+    <div class="btn-calc">
     <button id="idSum" type="button">+</button>
     <button id="idSub" type="button">-</button>
     <button id="idMul" type="button">*</button>
     <button id="idDvd" type="button">/</button>
+    <button id="idClr" type="button"><i class="fa fa-eraser"></i></button>
     </div>
-    <div>
+    <div class="w3-content w3-container w3-padding-64 w3-center" id="idCalculator">
         <h2>Canadian Taxes</h2>
         <label for="idIncome">Income:</label>
         <span class="input-symbol-dollar"><input id="idIncome" type="number" min="0" step="0.01"></span>
@@ -35,6 +38,30 @@
             <input id="idClear" type="button" value="Clear"><br><br>
             <div id="idMessageArea">Message Area</div>
         </div>
+        <div class="w3-content w3-container w3-padding-64 w3-center" id="idDict">
+          <div class="myContainer">
+              <h1>Working with Dictionaries</h1><br>
+              <input id="idPropInput" type="text" list="provinceCodes"><br><br>
+              <input id="idLookUp" type="button" value="Lookup"><br><br>
+              <div id="idMessageDict">Message Area</div>
+              <datalist id="provinceCodes">
+                  <option value="ab">
+                  <option value="bc">
+                  <option value="mb">
+                  <option value="nb">
+                  <option value="nl">
+                  <option value="ns">
+                  <option value="nt">
+                  <option value="nu">
+                  <option value="on">
+                  <option value="pe">
+                  <option value="qc">
+                  <option value="sk">
+                  <option value="yt">
+              </datalist>
+          </div>
+      </div>
+  
     </div>
      </script>
    <script type="module" src="10-25-tddmain.js"></script>

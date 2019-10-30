@@ -30,9 +30,10 @@
             <a href="#home" class="w3-bar-item w3-button">HOME</a>
             <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
             <a href="#idSize" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> SIZE</a>
-            <a href="#calculator" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> CALCULATOR</a>
+            <a href="#Calculator" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> CALCULATOR</a>
             <a href="#taxcal" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> TAX</a>
-            <a href="#idSize" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> SIZE</a>
+            <a href="#idArr" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Array</a>
+            <a href="#idDic" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> DICTIONARIES</a>
             <a href="https://www.evolveu.ca" class="w3-bar-item w3-button w3-hide-small" target="_blank"><i class="fa fa-envelope"></i> CONTACT</a>
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
                 <i class="fa fa-search"></i>
@@ -42,8 +43,6 @@
         <!-- Navbar on small screens -->
         <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
             <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-            <a href="#calculator" class="w3-bar-item w3-button" onclick="toggleFunction()">CALCULATOR</a>
-            <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">TAX</a>
             <a href="#idSize" class="w3-bar-item w3-button" onclick="toggleFunction()">SIZE</a>
             <a href="https://www.evolveu.ca" class="w3-bar-item w3-button" onclick="toggleFunction()" target="_blank">CONTACT</a>
             <a href="#" class="w3-bar-item w3-button">SEARCH</a>
@@ -101,36 +100,31 @@
         <p id="idNumberSizexx"></p>
     </div>
     <!-- ---------- Third Parallax Image with Calculator------------------ -->
-		<div class="bgimg-2 w3-display-container w3-opacity-min">
+		<div id='Calculator' class="bgimg-2 w3-display-container w3-opacity-min">
                 <div class="w3-display-middle">
                     <span class="w3-xxlarge w3-wide">My Calculator</span>
                 </div>
             </div>
-    
-            <div class="w3-content w3-container w3-padding-32 w3-center" id="idSize">
-                This app would perform simple arithmetic operations <br /><br />
-                <input id="calc-input-1" placeholder="enter first number" />
-                <input id="calc-input-2" placeholder="enter second number" />
-                <br /><br />
-                <!-- <p id="idNumberSizexx"></p> -->
-                <div class="btn-calc-opr">
-                    <button class="w3-button w3-round-large w3-black" id="btn-add">add (+)</button>
-                    <button class="w3-button w3-round-large w3-black" id="btn-sub">sub (-)</button>
-                    <button class="w3-button w3-round-large w3-black" id="btn-mul">mul (x)</button>
-                    <button class="w3-button w3-round-large w3-black" id="btn-dvd">dvd (&#247;)</button>
-                </div>
-                <br />
-                <div class="row" id="calc-disp-parent">
-                    <div class="column">
-                        <div class="column-btn column-disp" id="calc-display-val">calc...</div>
-                        <button class="column-btn w3-button w3-round-large w3-teal" id="btn-calc-clear">clear</button>
+            <div class="w3-content w3-container w3-padding-32 w3-center" id="idSize"></div>
+            <section>
+            <div class="w3-content w3-container w3-padding-32 w3-center" id="iCalculator">
+                <div>
+                    <h1>My Calculator</h1>
+                   <input id="idinput1" type="text" placeholder=" enter first # "> 
+                   <input id="idinput2" type="text" placeholder="enter second #"> <br>
+                    Answer: <input id="idAnswer" type="text"> <br>
                     </div>
-                </div>
-                <p id="calc-result"></p>
-            </div>
+                    <div class="btn-calc">
+                    <button id="idSum" type="button">+</button>
+                    <button id="idSub" type="button">-</button>
+                    <button id="idMul" type="button">*</button>
+                    <button id="idDvd" type="button">/</button>
+                    <button id="idClr" type="button"><i class="fa fa-eraser"></i></button>
+                    </div>
+            </section>
     
             <!-- ---------- Fourth Parallax Image with Canadian Taxes------------------ -->
-            <div class="bgimg-2 w3-display-container w3-opacity-min">
+            <div id="taxcal" class="bgimg-2 w3-display-container w3-opacity-min">
                 <div class="w3-display-middle">
                     <span class="w3-xxlarge w3-wide">Canadian Taxes</span>
                 </div>
@@ -138,8 +132,10 @@
     
             <div class="w3-content w3-container w3-padding-32 w3-center" id="idSize">
                 This app would calculate your taxes <br /><br />
-    
-                <input id="idTax" placeholder="enter income" />
+                <label for="idIncome">Income:</label>
+                <span class="input-symbol-dollar">
+                    <input id="idIncome" type="number" min="0" step="0.01">
+                </span>
                 <br /><br />
                 <div class="btn-tax-opr">
                     <button class="w3-button w3-round-large w3-black" id="idTaxCalc">Press to Compute Taxes</button>
@@ -151,7 +147,7 @@
             </div>
     
             <!-- ---------- Fifth Parallax Image for Working with Arrays------------------ -->
-            <div class="bgimg-2 w3-display-container w3-opacity-min">
+            <div id='idArr' class="bgimg-2 w3-display-container w3-opacity-min">
                 <div class="w3-display-middle">
                     <span class="w3-xxlarge w3-wide">Working with Arrays</span>
                 </div>
@@ -160,24 +156,19 @@
             <div class="w3-content w3-container w3-padding-32 w3-center" id="idSize">
                 Simple app that manipulates arrays<br /><br />
     
-                <input id="arr-input" placeholder="enter array element" />
-                <br /><br />
-                <div class="btn-arr-opr">
-                    <button class="w3-button w3-round-large w3-black" id="btn-arr-add">add</button>
-                    <button class="w3-button w3-round-large w3-black" id="btn-arr-show">show</button>
-                    <button class="w3-button w3-round-large w3-black" id="btn-arr-total">total</button>
-          </div>
-          <br />
-          <div class="row" id="arr-disp-parent">
-            <div class="column">
-              <div class="column-btn column-disp" id="arr-display-val">array...</div>
-              <button class="column-btn w3-button w3-round-large w3-teal" id="btn-arr-clear">clear</button>
+                <div class="myContainer">
+                        <h1>Working with Arrays</h1><br>
+                        <input id="idElementInput" type="text"><br><br>
+                        <input id="idAdd" type="button" value="Add">
+                        <input id="idShow" type="button" value="Show">
+                        <input id="idTotal" type="button" value="Total">
+                        <input id="idClear" type="button" value="Clear"><br><br>
+                        <div id="idMessageArea">Message Area</div>
+                    </div>
             </div>
-          </div>
-          </div>
-            </div>
-      <!-- ---------- Sixth Parallax Image for Working with Arrays------------------ -->
-      <div class="bgimg-2 w3-display-container w3-opacity-min">
+      <!-- ---------- Sixth Parallax Image for Working with Dictionries------------------ -->
+      
+      <div id='idDic' class="bgimg-2 w3-display-container w3-opacity-min">
         <div class="w3-display-middle">
           <span class="w3-xxlarge w3-wide">Working with Dictionaries</span>
         </div>
@@ -186,17 +177,31 @@
       <div class="w3-content w3-container w3-padding-32 w3-center" id="idSize">
         Simple app that looks up Canadian Provinces<br /><br />
       
-        <input type= "text" maxlength = "2" id="obj-input" placeholder="enter province abbreviation" />
-        <br /><br />
-        <div class="btn-obj-opr">
-          <button class="w3-button w3-round-large w3-black" id="idLookUp">lookup</button>
-        </div>
-        <br />
-        <div class="row" id="obj-disp-parent">
-          <div class="column" id="obj-display-val">province...</div>
-        </div>
-      </div>
-      </div>
+        <div class="w3-content w3-container w3-padding-64 w3-center" id="idDict">
+                <div class="myContainer">
+                    <h1>Working with Dictionaries</h1><br>
+                    <input id="idPropInput" type="text" list="provinceCodes"><br><br>
+                    <input id="idLookUp" type="button" value="Lookup"><br><br>
+                    <div id="idMessageDict">Message Area</div>
+                    <datalist id="provinceCodes">
+                        <option value="ab">
+                        <option value="bc">
+                        <option value="mb">
+                        <option value="nb">
+                        <option value="nl">
+                        <option value="ns">
+                        <option value="nt">
+                        <option value="nu">
+                        <option value="on">
+                        <option value="pe">
+                        <option value="qc">
+                        <option value="sk">
+                        <option value="yt">
+                    </datalist>
+                </div>
+            </div>
+        
+          </div>
 
     <!-- Footer -->
     <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">

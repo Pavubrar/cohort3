@@ -55,3 +55,24 @@ test ('chech the multiplication',() =>{
 test ('chech the division',() =>{
     expect (functions.dvd(4,2)).toBe(2);
 });
+test('Does the lookUp function work?', () => {
+    let dict = {
+        ab: "Alberta",
+        bc: "British Columbia",
+        mb: "Manitoba",
+        nb: "New Brunswick",
+        nl: "Newfoundland and Labrador",
+        ns: "Nova Scotia",
+        nt: "Northwest Territories",
+        nu: "Nunavut",
+        on: "Ontario",
+        pe: "Prince Edward Island",
+        qc: "Quebec",
+        sk: "Saskatchewan",
+        yt: "Yukon",
+    }
+    expect(functions.lookUp("ab")).toBe("Alberta");
+    expect(functions.lookUp("")).toBe(undefined);
+    expect(functions.lookUp("yt")).toBe("Yukon");
+    expect(functions.lookUp("on")).toBe("Ontario");
+});
