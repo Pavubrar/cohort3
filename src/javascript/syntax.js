@@ -55,7 +55,7 @@ const functions = {
         for (let x in Object){
             text += Object[x] + " ";
         }
-        text = text.trim();
+    
         return text;
     },
     whileLoop: (num) => {

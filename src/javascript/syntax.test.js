@@ -14,7 +14,7 @@ test('Check the datatypes', () => {
     expect(functions.addToEnd(["Grapes"])).toBe("Grapes,Grapes"); 
     expect(functions.updateValues(["Grapes"])).toBe("orange"); 
     expect(functions.forLoop(2)).toBe(2); 
-    expect(functions.forInLoop({fname: "parveen", lname: "kaur"})).toBe(["parveen", "kaur"]); 
+    expect(functions.forInLoop({fname: "parveen", lname: "kaur"})).toBe("parveen kaur"); 
     expect(functions.whileLoop(4)).toBe(" the last number is 3" );   
     expect(functions.doWhileLoop(4)).toBe(" the last number is 3" );
     expect(functions.forEachArrFunction(["a","b","c"])).toBe("abcd" );
