@@ -1,4 +1,15 @@
 import functions from './daily'
+
+//Oct29 - More Array Exercises
+test('totalBalances()', () => {
+    expect(functions.totalBalances(data.staff)).toEqual(3823);
+ });
+ 
+ test('averageBalances()', () => {
+     expect(functions.averageBalances(data.staff)).toEqual(546.1428571428571);
+ });
+
+
  
 const data = {
     staff: [

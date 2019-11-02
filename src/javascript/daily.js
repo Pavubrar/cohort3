@@ -1,5 +1,15 @@
 
 const functions = {
+
+    //2019-10-29 - More Array Exercises
+totalBalances:(staffArray) => {
+    return staffArray.reduce(((accumulator, staffMem) => accumulator + staffMem.balance), 0);
+},
+
+ averageBalances: (staffArray) => {
+    const total = staffArray.reduce(((accumulator, staffMem) => accumulator + staffMem.balance), 0);
+    return total /staffArray.length; 
+},
    
  // 2019 - 10 -25
 
