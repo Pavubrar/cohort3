@@ -1,0 +1,38 @@
+body{
+    background-color: rgb(249, 250, 253);
+}
+
+#idContainer {
+    background-color: transparent;
+    border: 5px solid black;
+    width: 250px;
+    padding: 20px;
+    margin: auto;
+
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 15px 150px;
+}
+.panel {
+    background-color: white;
+    height: 500px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    overflow: auto;
+}
+.btn :hover {
+    background-color: blueviolet;
+}
+.btn {
+  width: 70%;
+  border: none;
+  background-color: rgb(246, 252, 246);
+  padding: 10px 18px;
+  font-size: 10px;
+  cursor: pointer;
+  text-align: center;
+}
