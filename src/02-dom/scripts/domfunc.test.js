@@ -1,39 +1,27 @@
-import functions from"./domfunc.js"
+import functions from "./domfunc.js";
 
- const newOl = document.createElement("ol");
- test('chekin items in the list',() => {
-     expect(newOl.childElementCount).toBe(0);
- });
-test('add elem to list',()=>{
-    functions.addListItem(newOl)
-    expect(newOl.childElementCount).toBe(1);
+test(" tetsing add items in a list", () => {
+  let testList = document.createElement("ol");
+  // testList.setAttribute("id", "idlist")
+  // let listforTesting = document.getElementById("idlist");
+  console.log(testList);
+  // let count = testList.childElementCount;
+  expect(testList.childElementCount).toEqual(0);
+  functions.addListItem(testList);
+  functions.addListItem(testList);
+  functions.addListItem(testList);
+  expect(testList.childElementCount).toEqual(3);
 });
-
-test('add text content to item 1',()=>{
-   // let myList = document.getElementById('idList');
-    let listCount = newOl.childElementCount
-
-    functions.addListItem(newOl);
-    expect(newOl.childElementCount).toEqual(listCount + 1);
+test("deleting an item from the list", () => {
+  let testList1 = document.createElement("ol");
+  functions.addListItem(testList1);
+  expect(testList1.childElementCount).toEqual(1);
+  functions.delListItem(testList1);
+  expect(testList1.childElementCount).toEqual(0);
 });
-//     let List = document.getElementById('idList');
-//     let Count = List.childElementCount
-//     functions.createListElement();
-//     expect(jestList.childElementCount).toEqual(listCount + 1);
-// });
-
-//     expect(newOl.children[0].textContent).toBe("Item 1");
-// });
-
-test('del elem from list',()=>{
-    functions.delListItem(newOl)
-    expect(newOl.children.length).toBe(1)
+test("check the show item list", () => {
+  let testList2 = document.createElement("ol");
+  functions.addListItem(testList2);
+  functions.showListItem(testList2);
+  expect(functions.showListItem(testList2)).toBe("Item 1");
 });
-test('show elem of list',()=>{
-    //let newOl = document.getElementById("idlist");
-    // functions.addListItem(newOl)
-    // functions.addListItem(newOl)
-    expect(functions.showListItem(newOl)).toEqual(["Item 3"]);
-});
-
-    
