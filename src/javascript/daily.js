@@ -1,6 +1,16 @@
 
 const functions = {
 
+// 2019-11-6
+
+    bigBalances: (staffArray) => {
+        const balanceArr = staffArray.map(elem => elem.balance);
+        const over1k = balanceArr.filter(balance => balance >= 1000)
+
+
+        return over1k;
+    },
+
     //2019-10-29 - More Array Exercises
 totalBalances:(staffArray) => {
     return staffArray.reduce(((accumulator, staffMem) => accumulator + staffMem.balance), 0);

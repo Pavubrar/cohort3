@@ -1,16 +1,5 @@
 import functions from './daily'
 
-//Oct29 - More Array Exercises
-test('totalBalances()', () => {
-    expect(functions.totalBalances(data.staff)).toEqual(3823);
- });
- 
- test('averageBalances()', () => {
-     expect(functions.averageBalances(data.staff)).toEqual(546.1428571428571);
- });
-
-
- 
 const data = {
     staff: [
         { fname: "Jane", lname: "Smith", balance: 10 },
@@ -25,6 +14,25 @@ const data = {
     city: "Calgary",
     prov: "Alberta"
 };
+
+// 2019-11-6
+
+test("find the balance >= 1000",() => {
+expect(functions.bigBalances(data.staff)).toEqual([1000, 1330]);
+});
+
+//Oct29 - More Array Exercises
+test('totalBalances()', () => {
+    expect(functions.totalBalances(data.staff)).toEqual(3823);
+ });
+ 
+ test('averageBalances()', () => {
+     expect(functions.averageBalances(data.staff)).toEqual(546.1428571428571);
+ });
+
+
+ 
+
 
 // 25-Oct-2019 Daily Exercises
 test("testing loopStaffForEach using forEach callback", () => {
