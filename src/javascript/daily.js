@@ -1,15 +1,13 @@
 
 const functions = {
 
-// 2019-11-6
 
-    bigBalances: (staffArray) => {
-        const balanceArr = staffArray.map(elem => elem.balance);
-        const over1k = balanceArr.filter(balance => balance >= 1000)
-
-
-        return over1k;
-    },
+    // 2019-11-6
+bigBalances: (staffArray) => {
+    const over1k = staffArray.filter(staffMem => staffMem.balance >= 1000);
+    return over1k.map(elem => elem.balance);
+    
+},
 
     //2019-10-29 - More Array Exercises
 totalBalances:(staffArray) => {
