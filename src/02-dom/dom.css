@@ -4,35 +4,58 @@ body{
 
 #idContainer {
     background-color: transparent;
-    border: 5px solid black;
+    border: 3px solid black;
     width: 200px;
     padding: 10px;
     margin: auto;
 
 }
-.grid-container {
+.gridContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-gap: 15px 150px;
 }
-.panel {
-    background-color: white;
+.left-panel  {
+    background-color: rgb(252, 192, 192);
     height: 500px;
     text-align: center;
     border-radius: 10px;
     padding: 10px;
     overflow: auto;
+    flex: 1;
+}
+.right-panel  {
+    background-color: rgb(243, 174, 174);
+    height: 500px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    overflow: auto;
+    flex: 1;
 }
 .btn :hover {
     background-color: blueviolet;
 }
 .btn {
   width: 70%;
-  border: none;
-  background-color: rgb(246, 252, 246);
+  border: 1rem solid;
+  background-color: rgb(188, 247, 188);
   padding: 10px 18px;
   font-size: 10px;
   cursor: pointer;
   text-align: center;
+}
+.card{
+    background-color: rgb(255, 255, 128);
+    margin: 30px;
+    padding: 20px;
+    border-radius: 15px;
+    width: 45%;
+}
+.card > * {
+    margin: 15px, 3px, 5px, 3px;
+}
+.card:hover {
+    background: rgb(128, 120, 245);
 }

@@ -15,13 +15,22 @@ idShow.addEventListener("click", () => {
     //functions.showListItem(idlist)
     alert (functions.showListItem(idlist));
 })
-// let count = 0;
-// idAddNewCard.addEventListener("click", ()=>{
-//     //let numChild = idDiv1.childElementCount;
-//     let newDiv = document.createElement("div");
-//     newDiv.setAttribute('count',count++)  ;
-//     newDiv.setAttribute("class","div1")
-//     newDiv.textContent = `card # ${count} ` ;
+const leftPanel = document.getElementById("idLeftPanel");
 
-//     idDiv1.appendChild(newDiv);
-// });
+leftPanel.addEventListener("click", () => {
+    switch(event.target.innerText) {
+        case 'Add New Card':
+            functions.addCard(leftPanel);
+            break;
+        case 'Add Before':
+            functions.addBefore(leftPanel, event.target.parentElement);
+            break;
+        case 'Add After':
+            functions.addAfter(leftPanel, event.target.parentElement);
+            break;
+        case 'Delete':
+            functions.deleteCard(event.target.parentElement);
+            break;
+    }
+});
+

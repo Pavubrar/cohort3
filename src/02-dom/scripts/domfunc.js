@@ -26,16 +26,40 @@ const functions = {
   },
 
   //--- Working With Cards---
-  creatCard: node => {
-    functions.count++;
-    let newDiv = document.createElement("div");
-    newDiv.className = "div1";
-    newDiv.setAttribute("count", functions.count);
-    newDiv.textContent = `card # ${functions.count}`;
-    node.appendChild(newDiv);
+    cardNumber: 0,
 
-    return newDiv;
+  addCard(target){
+    this.cardNumber++;
+    const cardTemplate = document.createElement("div");
+      cardTemplate.id = `card${this.cardNumber}`;
+      cardTemplate.classList.add("card");
+    const h3 = document.createElement("h3");
+      h3.innerText =`Card${this.cardNumber}`;
+      cardTemplate.appendChild(h3);
+    const addBeforeButton = document.createElement("button");
+      addBeforeButton.id =`add-before-button${this.cardNumber}`;
+      addBeforeButton.innerText = "Add Before";
+      cardTemplate.appendChild(addBeforeButton);
+    const addAfterButton = document.createElement("button");
+      addAfterButton.id =`add-after-button${this.cardNumber}`;
+      addAfterButton.innerText = "Add After";
+      cardTemplate.appendChild(addAfterButton);
+    const addDeleteButton  = document.createElement("button");
+      addDeleteButton.id = `add-del-button${this.cardNumber}`;
+      addDeleteButton.innerText = "Delete";
+      cardTemplate.appendChild(addDeleteButton);
+    target.appendChild(cardTemplate);
+    return cardTemplate;
+  },
+  addBefore(target, card) {
+    target.insertBefore(this.addCard(target),card);
+  },
+  addAfter(target, card){
+    target.insertBefore(this.addCard(target),card.nextSibling);
+  },
+  deleteCard(card){
+    card.remove();
   }
-};
+}; 
 
 export default functions;
