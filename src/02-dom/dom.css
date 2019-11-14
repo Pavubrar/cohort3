@@ -1,5 +1,7 @@
 body{
-    background-color: rgb(249, 250, 253);
+    background-color:transparent;
+    background-image: url("myimg.jpg") ;
+    background-size: cover;
 }
 
 #idContainer {
@@ -17,7 +19,7 @@ body{
     grid-gap: 15px 150px;
 }
 .left-panel  {
-    background-color: rgb(252, 192, 192);
+    background-color: transparent;
     height: 500px;
     text-align: center;
     border-radius: 10px;
@@ -26,7 +28,7 @@ body{
     flex: 1;
 }
 .right-panel  {
-    background-color: rgb(243, 174, 174);
+    background-color: transparent;
     height: 500px;
     text-align: center;
     border-radius: 10px;
