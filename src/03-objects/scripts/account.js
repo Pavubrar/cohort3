@@ -19,17 +19,16 @@ class AccountController {
         this.ClientDOB = ClientDOB;
         this.accountArray = [];
     }
-    createAccount(accountType, initialBalance){
+    createAccount (accountType, initialBalance){
         let message;
-        if(this.Accounts.filter((account) =>account.accountType === accountType).length === 0){
+        if(this.accountArray.filter((account) =>account.accountType === accountType).length === 0){
             let newAccount = new Account (accountType, initialBalance);
-            this.accounts.push(newAccount);
+            this.accountArray.push(newAccount);
             message = `the new account(type:${accountType}), with initial balance of ${initialBalance}$ has been added`
         } else {
             message = `you already have an ${accountType}, please select different Account Type`
         }
         return message;
-this.accountArray.push(new Account(accountType, initialBalance));
     }
 
     // getAccounts(){
@@ -38,17 +37,17 @@ this.accountArray.push(new Account(accountType, initialBalance));
     // getAccount(name){
     //     return this.accountArray.filter(account => account.accountType === accountType)[0];
     // }
-    removeAccount(naccountType){
-        this.accountArray = this.accountArray.filter(account => account.accountType !== accountType);
+    removeAccount (accountType){
+        this.accountArray = this.accountArray.filter((account) => account.accountType !== accountType);
     }
-    totalAccount(){
+    totalAccount (){
         const total= this.accountArray.reduce((accumulator, accountType) => accumulator + account.currentBlance,0);
         return total;
     }
-    mostValuableAccount(){
+    mostValuableAccount (){
         return this.accountArray.sort((a,b) => b.currentBlance - a.currentBlance)[0];
     }
-    leastValuableaccount(){
+    leastValuableaccount (){
         return this.accountArray.sort((a,b) => a.currentBlance - b.currentBlance)[0];
     }
 }

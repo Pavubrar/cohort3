@@ -3,12 +3,12 @@ const domfuncs = {
   delete:(currentAccount, leftSide) => {
       idLeftSide.removeChild(currentAccount);
   },
-  addNew: (leftSide, newAccountType) => {
+  addNew: (idLeftSide, newAccountType) => {
       let newCard = document.createElement("div");
       newCard.className = "accountCard";
       let newCardHeader = document.createElement("h2");
       newCardHeader.className = "cardHeader";
-      newCardHeader.textContent = `{newAccountType}`;
+      newCardHeader.textContent = `${newAccountType}`;
       let inputField = document.createElement("input");
       inputField.className = "inputField";
       inputField.type ="Number";
@@ -31,7 +31,8 @@ const domfuncs = {
       newCard.appendChild(withdraw);
       newCard.appendChild( newDelete);
       newCard.appendChild(balance);
-      newCard.appendChild(newCard);
+      idLeftSide.appendChild(newCard);
+
   },
   addExtra: (leftSide) => {
       let highestBalance = document.createElement("button");
