@@ -1,6 +1,6 @@
 const domfuncs = {
 
-  delete:(currentAccount, leftSide) => {
+  delete:(currentAccount, idLeftSide) => {
       idLeftSide.removeChild(currentAccount);
   },
   addNew: (idLeftSide, newAccountType) => {
@@ -34,24 +34,25 @@ const domfuncs = {
       idLeftSide.appendChild(newCard);
 
   },
-  addExtra: (leftSide) => {
+  addExtra: (idLeftSide) => {
       let highestBalance = document.createElement("button");
       highestBalance.className ="highestBalance";
       highestBalance.textContent = "Highest Balance";
       let lowestBalance = document.createElement("button");
-      highestBalance.className ="hlowestBalance";
-      highestBalance.textContent = "Lowest Balance";
+      lowestBalance.className ="lowestBalance";
+      lowestBalance.textContent = "Lowest Balance";
       let totalBalance = document.createElement("button");
-      highestBalance.className ="totalBalance";
-      highestBalance.textContent = "Total Balance";
+      totalBalance.className ="totalBalance";
+      totalBalance.textContent = "Total Balance";
       let extraDiv = document.createElement("div");
+      extraDiv.id = "addExtra";
       extraDiv.className ="extraDiv";
       extraDiv.appendChild(highestBalance);
       extraDiv.appendChild(lowestBalance);
       extraDiv.appendChild(totalBalance);
-      idLeftSide.inertBefore(extraDiv, idLeftSide.children[3])
+      idLeftSide.insertBefore(extraDiv, idLeftSide.children[3])
   },
-  deleteExtra: (leftSide) => {
+  deleteExtra: (idLeftSide) => {
       idLeftSide.removeChild(idLeftSide.children[3]);
   }
 };

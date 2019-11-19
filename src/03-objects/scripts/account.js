@@ -1,6 +1,6 @@
 class Account {
-    constructor(name, initialBalance){
-        this.name = name;
+    constructor(accountType, initialBalance){
+        this.accountType = accountType;
         this.currentBlance = Number(initialBalance);
     }
     deposit(value) {
@@ -31,24 +31,45 @@ class AccountController {
         return message;
     }
 
-    // getAccounts(){
-    //     return this.accountArray;
-    // }
-    // getAccount(name){
-    //     return this.accountArray.filter(account => account.accountType === accountType)[0];
-    // }
+    getAccounts(){
+        return this.accountArray;
+    }
+    getAccount(accountType){
+        return this.accountArray.filter(account => account.accountType === accountType)[0];
+    }
     removeAccount (accountType){
         this.accountArray = this.accountArray.filter((account) => account.accountType !== accountType);
     }
     totalAccount (){
-        const total= this.accountArray.reduce((accumulator, accountType) => accumulator + account.currentBlance,0);
+        const total= this.accountArray.reduce((accumulator, account) => accumulator + account.currentBlance,0);
         return total;
     }
     mostValuableAccount (){
-        return this.accountArray.sort((a,b) => b.currentBlance - a.currentBlance)[0];
+        let highestBalance = this.accountArray[0].currentBlance;
+        this.accountArray.forEach(function1);
+        function function1 (itm, idx) {
+            if (itm.currentBlance > highestBalance) {
+                highestBalance = itm.currentBlance
+            }
+            return highestBalance
+        }
+         let highestAccount = this.accountArray.filter(itm => itm.currentBlance === highestBalance);
+         return highestAccount[0];
+       // return this.accountArray.sort((a,b) => b.currentBlance - a.currentBlance)[0];
     }
     leastValuableaccount (){
-        return this.accountArray.sort((a,b) => a.currentBlance - b.currentBlance)[0];
+        let lowestBalance = this.accountArray[0].currentBlance;
+        this.accountArray.forEach(function2);
+            function function2(itm, index){
+                if (itm.currentBlance < lowestBalance){
+                 lowestBalance = itm.currentBlance;
+                }
+                return lowestBalance;
+            }
+            let lowestAccount = this.accountArray.filter(itm => itm.currentBlance === lowestBalance);
+            return lowestAccount [0];
+        
+       // return this.accountArray.sort((a,b) => a.currentBlance - b.currentBlance)[0];
     }
 }
 

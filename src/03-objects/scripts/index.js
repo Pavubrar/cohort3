@@ -26,7 +26,7 @@ let Person = new AccountController ("Person", "1986.07.18");
         let amount = Number(currentAccount.children[1].value);
         if (amount > 0) {
             let currentAccountType = currentAccount.children[0].textContent;
-            let currentAccountIndex = Person.accountArray.findIndex((account) =>account.name === currentAccountType);
+            let currentAccountIndex = Person.accountArray.findIndex((account) =>account.accountType === currentAccountType);
             Person.accountArray[currentAccountIndex].deposit(amount);
             currentAccount.children[1].value="";
             display.textContent = `${amount}$ has been deposited to your ${Person.accountArray[currentAccountIndex].accountType}` 
@@ -37,7 +37,7 @@ let Person = new AccountController ("Person", "1986.07.18");
     let amount = Number(currentAccount.children[1].value);
     if (amount > 0) {
         let currentAccountType = currentAccount.children[0].textContent;
-        let currentAccountIndex = Person.accountArray.findIndex((account) =>account.name === currentAccountType);
+        let currentAccountIndex = Person.accountArray.findIndex((account) =>account.accountType === currentAccountType);
         Person.accountArray[currentAccountIndex].withdraw(amount);
         currentAccount.children[1].value="";
         display.textContent = `${amount}$ has been withdrawn from your ${Person.accountArray[currentAccountIndex].accountType}` 
@@ -46,7 +46,7 @@ let Person = new AccountController ("Person", "1986.07.18");
  if(event.target.className === "balance"){
     let currentAccount = event.target.parentElement;
     let currentAccountType = currentAccount.children[0].textContent;
-    let currentAccountIndex = Person.accountArray.findIndex((account) =>account.name === currentAccountType);
+    let currentAccountIndex = Person.accountArray.findIndex((account) =>account.accountType === currentAccountType);
     let message = Person.accountArray[currentAccountIndex].balance();
         currentAccount.children[1].value="";
         display.textContent = message ;
@@ -62,19 +62,19 @@ let Person = new AccountController ("Person", "1986.07.18");
             domfuncs.deleteExtra(idleftSide);
         };
     }
-//     if (event.target.className === "highestBalance") {
-//         let highestBalanceAccount = Person.highestBalance();
-//         display.textContent = `Your ${highestBalanceAccount.accountType} has the highest balance, ${highestBalanceAccount.balance}$`
-//         };
-//     if (event.target.className === "lowestBalance") {
-//         let lowestBalanceAccount = Person.lowestBalance();
-//         display.textContent = `Your ${lowestBalanceAccount.accountType} has the lowests balance, ${lowestBalanceAccount.balance}$`
-//         };
-//     if (event.toElement.className === "totalBalance") {
-//         let totalBalance = Person.totalBalance();
-//         display.textContent = `The total balance of all of your accounts is ${totalBalance}$`
-//         };
-// });
+    if (event.target.className === "highestBalance") {
+        let highestBalanceAccount = Person.mostValuableAccount();
+        display.textContent = `Your ${highestBalanceAccount.accountType} has the highest balance, ${highestBalanceAccount.currentBlance}$`
+        };
+    if (event.target.className === "lowestBalance") {
+        let lowestBalanceAccount = Person.leastValuableaccount();
+        display.textContent = `Your ${lowestBalanceAccount.accountType} has the lowests balance, ${lowestBalanceAccount.currentBlance}$`
+        };
+    if (event.toElement.className === "totalBalance") {
+        let totalBalance = Person.totalAccount();
+        display.textContent = `The total balance of all of your accounts is ${totalBalance}$`
+        };
+});
 // input2.addEventListener("keypress", (event) => {
 //     if (event.which === 13) {
 //         let newAccountType = input1.value;
@@ -90,5 +90,4 @@ let Person = new AccountController ("Person", "1986.07.18");
 //                 domfuncs.addExtra(idLeftSide);
 //             };
 //         };
-//     };
-});    
+//     };   
