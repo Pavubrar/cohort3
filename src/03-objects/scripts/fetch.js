@@ -11,5 +11,17 @@ getFirstName (data)  {
 getAllFirstName(data) {
     return data.map(person => person.name);
 }
-}
+};
+
+const me = { 
+    "name": "Parveen", 
+    "surname": "Kaur", 
+    "gender": "female", 
+    "region": "Canada" 
+};
+const sMe = JSON.stringify(me);
+console.log(sMe);
+
+
+
 export default functions;
