@@ -50,6 +50,7 @@ class AccountController {
         function function1 (itm, idx) {
             if (itm.currentBlance > highestBalance) {
                 highestBalance = itm.currentBlance
+                
             }
             return highestBalance
         }

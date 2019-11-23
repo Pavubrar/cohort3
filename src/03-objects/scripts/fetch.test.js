@@ -1,4 +1,4 @@
-import functions from './fetch.js'
+import fetchFunctions from './fetch.js'
 
 //global.fetch = require('node-fetch');
 const data = [

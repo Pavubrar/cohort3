@@ -1,5 +1,5 @@
 //const fetch = require('node-fetch');
-const functions = {
+const fetchFunctions = {
     //url: 'https://uinames.com/api/?amount=10',
 
 getFirstName (data)  {
@@ -24,4 +24,4 @@ console.log(sMe);
 
 
 
-export default functions;
+export default fetchFunctions;
