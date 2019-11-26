@@ -1,14 +1,27 @@
 import functions from './daily'
-
+let myArray = [
+    { num: 5, str: "apples", origin: "BC" },
+    { num: 7, str: "oranges", origin: "Florida" },
+    { num: 2, str: "lemons", origin: "Mexico" },
+    { num: 8, str: "bananas", origin: "Ecuador" },
+    { num: 6, str: "avocados", origin: "Mexico" },
+    { num: 4, str: "pineapple", origin: "Brazil" },
+    { num: 3, str: "blueberries", origin: "Chile" },
+    { num: 9, str: "pears", origin: "Oregon" },
+    { num: 1, str: "cantaloupe", origin: "California" }
+];
+ test('chech the array destructuring', () => {
+     expect(functions.getData(myArray)).toEqual([ 5, 7, 2, 8, 6, 4, 3, 9, 1 ]);
+ })
 //Nov22
-test('sortFunctions()', () => {
-    expect(functions.sortFunctions()[0]).toEqual({ num: 9, str: "pears", origin: "Oregon" })
-});
+// test('sortFunctions()', () => {
+//     expect(functions.sortFunctions()[0]).toEqual({ num: 9, str: "pears", origin: "Oregon" })
+// });
 
-//Nov21
-test('summarizePeople() return object of total number of people, total age, and the average age - from Alberta or BC only', () => {
-    expect(functions.summarizePeople(people)).toEqual({ totalPeople: 22, totalAge: 838, averageAge: 38.09090909090909 });
-});
+// //Nov21
+// test('summarizePeople() return object of total number of people, total age, and the average age - from Alberta or BC only', () => {
+//     expect(functions.summarizePeople(people)).toEqual({ totalPeople: 22, totalAge: 838, averageAge: 38.09090909090909 });
+// });
 const data = {
     staff: [
         { fname: "Jane", lname: "Smith", balance: 10 },
