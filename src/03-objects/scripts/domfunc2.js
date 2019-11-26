@@ -1,6 +1,6 @@
 const operations ={
-    delete: (curretCity, idleftSide) => {
-        idleftSide.removeChild(curretCity);
+    delete: (currentCity, idleftSide) => {
+        idleftSide.removeChild(currentCity);
     },
     addNew:(idleftSide, newCityName, newCityLongitude, newCityLatitude) => {
         let newCity = document.createElement("div");
@@ -46,9 +46,9 @@ const operations ={
         newCity.appendChild(newDelete);
         newCity.appendChild(howBig);
         newCity.appendChild(which);
-        leftSide.appendChild(newCity);
+        idleftSide.appendChild(newCity);
     },
-    addExtra: (leftSide) => {
+    addExtra: (idleftSide) => {
         let MostNorthern = document.createElement("button");
         MostNorthern.className="MostNorthern";
         MostNorthern.textContent = `Most Northern`;
@@ -63,10 +63,10 @@ const operations ={
         extraDiv.appendChild(MostNorthern);
         extraDiv.appendChild(MostSouthern);
         extraDiv.appendChild(totalPopulation);
-        leftSide.insertBefore(extraDiv, leftSide.children[3])
+        idleftSide.insertBefore(extraDiv, idleftSide.children[3])
     },
-    deleteExtra: (leftSide) => {
-        leftSide.removeChild(leftSide.children[3]);
+    deleteExtra: (idleftSide) => {
+        idleftSide.removeChild(idleftSide.children[3]);
     }
 };
 

@@ -25,13 +25,13 @@ idContainer.addEventListener("click",(event)=>{
         newDiv.textContent = `card # ${count} ` ;
     
         idDiv1.appendChild(newDiv);
-    }
+    },
 idDiv1.addEventListener("click",()=>{
     console.log(event.target);
     console.log("count of Div" + event.target.getAttribute("count"));
     console.log("this is parent div " + event.target.parentNode);
     console.log("this is child div " + event.target.parentNode.children);
-});
+},
 let count = 0;
 btn1.addEventListener("click", ()=>{
     //let numChild = idDiv1.childElementCount;

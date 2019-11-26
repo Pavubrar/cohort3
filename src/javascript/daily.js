@@ -1,5 +1,49 @@
 
-const functions = {
+//Nov22
+let myArray = [
+    { num: 5, str: "apples", origin: "BC" },
+    { num: 7, str: "oranges", origin: "Florida" },
+    { num: 2, str: "lemons", origin: "Mexico" },
+    { num: 8, str: "bananas", origin: "Ecuador" },
+    { num: 6, str: "avocados", origin: "Mexico" },
+    { num: 4, str: "pineapple", origin: "Brazil" },
+    { num: 3, str: "blueberries", origin: "Chile" },
+    { num: 9, str: "pears", origin: "Oregon" },
+    { num: 1, str: "cantaloupe", origin: "California" }
+];
+const functions = { 
+    sortFunc = function(a,b){   // using anonymous function 
+        return a.num - b.num;
+    }
+    }
+}
+    myArray.sort(function fruitSort(a, b) {      // using named function
+        if (a.str < b.str) return -1;
+        if (a.str > b.str) return 1;
+        return 0
+    });
+    console.log("myArray = ", myArray);
+
+     myArray.sort((a, b) => {
+        if (a.origin < b.origin) return 1;
+        if (a.origin > b.origin) return -1;
+        return 0
+    });
+    console.log("myArray = ", myArray);
+
+    return myArray;
+
+  //Nov21
+export const summarizePeople = (peopleArray) => {
+    const summary = {};
+    const peopleABBC = filterProvinces(peopleArray);
+
+    summary.totalPeople = peopleABBC.length;
+    summary.totalAge = peopleABBC.reduce(((accumulator, person) => accumulator + person.age), 0);
+    summary.averageAge = summary.totalAge / summary.totalPeople;
+    return summary;
+}  
+    
 
 // Callback Exercise (Part 1) of November 8, 2019
 
