@@ -57,7 +57,7 @@ class Community {
         return message;
     }
     getPopulation(){
-        return this.cities.reduce((acc,itm) => it, population+acc,0);
+        return this.cities.reduce((acc,itm) => this.population+acc,0);
     }
     removeCity(key){
         console.log(this.cities.length);

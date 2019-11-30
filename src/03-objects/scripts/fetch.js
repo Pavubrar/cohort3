@@ -41,16 +41,16 @@ const fetchFunctions = {
             body: JSON.stringify(data)  // body data type must match "Content-Type" header
         });
         const json = await response.json();   // parses JSON response into native JavaScript objects
-        json.status = response.status;
-        json.statusText = response.statusText;
+        // json.status = response.status;
+        // json.statusText = response.statusText;
         return json;
     },
 
     async load(newCommunity) {
         let data = await this.postData(url + 'all');
         if (data.length != 0) {
-            newCommunity.Cities = data.map(itm => new City(itm.Key, itm.Name, itm.Longitude, itm.Latitude, itm.Population))
-            let keysArray = newCommunity.Cities.map(itm => itm.Key)
+            newCommunity.Cities = data.map(element => new City(element.key, element.name, element.longitude, element.latitude, element.population))
+            let keysArray = newCommunity.Cities.map(element => element.key)
             keysArray.sort((a, b) => b - a);
             let highestKey = keysArray[0];
             return highestKey;
@@ -64,10 +64,15 @@ const fetchFunctions = {
     async addNew(newCity) {
         let data = await this.postData(url + 'add', newCity);
         return data;
+    },
+    async update() {
+        let data = await this.postData(url + 'update', currentCity);
+    },
+    async delete() {
+        let data = await this.postData(url + 'dlete', {key: foundKey});
     }
 }
-
-
-
-
 export default fetchFunctions;
+
+
+
