@@ -34,4 +34,5 @@ let newCity = new City(1, "Calgary", -114, 51, 28);
       expect(newCommunity.Cities.length).toEqual(4);
       expect(newCommunity.getMostNorthern()).toEqual( [{"Key": 5, "Latitude": 53, "Longitude": -112, "Name": "Camrose", "Population": 120011}]);
       expect(newCommunity.getMostSouthern()).toEqual({"Key": 2, "Latitude": 37, "Longitude": -121, "Name": "Edminton", "Population": 125} );
+     // expect(newCommunity.Cities.).toEqual(4);
   })

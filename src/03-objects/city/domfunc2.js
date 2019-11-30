@@ -2,22 +2,28 @@ const operations ={
     delete: (currentCity, idleftSide) => {
         idleftSide.removeChild(currentCity);
     },
-    addNew:(idleftSide, newCityName, newCityLongitude, newCityLatitude) => {
+    addNew:(idleftSide,key,newCityName, newCityLongitude, newCityLatitude,newCityPopulation) => {
         let newCity = document.createElement("div");
-        newCity.className = "cityCard";
+        //newCity.className = "cityCard";
+        newCity.setAttribute("class", "cityCard",)
+        newCity.setAttribute("cardKey", key)
         let newCityHeader = document.createElement("div");
         newCityHeader.className ="cityHeader";
         let newCityNam = document.createElement("h3");
-        newCityNam.textContent =`${newCityName}`;
+        newCityNam.textContent = `${newCityName}`;
         let newCityLong = document.createElement("h3");
         newCityLong.textContent = `${newCityLongitude}`;
         let newCityLatt = document.createElement("h3");
         newCityLatt.textContent = `${newCityLatitude}`;
+        let newCityPopu = document.createElement("h3");
+        newCityPopu.textContent =`${newCityPopulation}`;
         newCityHeader.appendChild(newCityNam);
-        newCityHeader.appendChild(newCityLatt);
         newCityHeader.appendChild(newCityLong);
+        newCityHeader.appendChild(newCityLatt);
+        newCityHeader.appendChild(newCityPopu);
         let inputField = document.createElement("input");
         inputField.className = "inputField"
+        inputField.id ="idmove"
         inputField.type = "Number"
         inputField.placeholder = "number of people moved in/out"
         let deposite = document.createElement("button");
@@ -30,12 +36,15 @@ const operations ={
         newDelete.className="delete";
         newDelete.textContent = `Delete`;
         let balance = document.createElement("button");
+        balance.id ="idbalance";
         balance.className="balance";
         balance.textContent = `Show`;
         let howBig = document.createElement("button");
+        howBig.id ="idhowbig"
         howBig.className="howBig";
         howBig.textContent = `How Big`;
         let which = document.createElement("button");
+        which.id ="idwhich"
         which.className="which";
         which.textContent = `Hemisphere`;
         newCity.appendChild(newCityHeader);
@@ -47,6 +56,7 @@ const operations ={
         newCity.appendChild(howBig);
         newCity.appendChild(which);
         idleftSide.appendChild(newCity);
+        return newCity;
     },
     addExtra: (idleftSide) => {
         let MostNorthern = document.createElement("button");
