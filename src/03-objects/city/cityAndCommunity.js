@@ -60,7 +60,7 @@ class Community {
         return message;
     }
     getPopulation(){
-        return this.cities.reduce((acc,itm) => this.population+acc,0);
+        return this.cities.reduce((acc,itm) => itm.population + acc,0);
     }
     removeCity(key){
         console.log(this.cities.length);
@@ -72,10 +72,12 @@ class Community {
         this.cities.forEach(element => {
             if(element.latitude > northernSphere){
                 northernSphere = element.latitude
+                console.log(northernSphere)
             }
             return northernSphere;
         })
-        let mostNorthernCity = this.cities.filter(element => element.latitude ===northernSphere)
+        let mostNorthernCity = this.cities.filter(element => element.latitude ===northernSphere)[0]
+        console.log(mostNorthernCity)
         return mostNorthernCity;
     }
     getMostSouthern(){
@@ -86,8 +88,8 @@ class Community {
             }
             return southernSphere;
         })
-        let mostSouthernCity = this.cities.filter(element => element.longitude === southernSphere);
-        return mostSouthernCity[0];
+        let mostSouthernCity = this.cities.filter(element => element.longitude === southernSphere)[0];
+        return mostSouthernCity;
     }
     getHighestKey() {
         if (this.cities.length > 0) return this.cities.sort((a, b) => b.key - a.key)[0].key;
