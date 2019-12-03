@@ -14,14 +14,14 @@ let myArray = [
      expect(functions.getData(myArray)).toEqual([ 5, 7, 2, 8, 6, 4, 3, 9, 1 ]);
  })
 //Nov22
-// test('sortFunctions()', () => {
-//     expect(functions.sortFunctions()[0]).toEqual({ num: 9, str: "pears", origin: "Oregon" })
-// });
+test('sortFunctions()', () => {
+    expect(functions.sortFunction()[0]).toEqual({ num: 9, str: "pears", origin: "Oregon" })
+});
 
 // //Nov21
-// test('summarizePeople() return object of total number of people, total age, and the average age - from Alberta or BC only', () => {
-//     expect(functions.summarizePeople(people)).toEqual({ totalPeople: 22, totalAge: 838, averageAge: 38.09090909090909 });
-// });
+test('summarizePeople() return object of total number of people, total age, and the average age - from Alberta or BC only', () => {
+    expect(functions.summarizePeople(people)).toEqual({ totalPeople: 22, totalAge: 838, averageAge: 38.09090909090909 });
+});
 const data = {
     staff: [
         { fname: "Jane", lname: "Smith", balance: 10 },

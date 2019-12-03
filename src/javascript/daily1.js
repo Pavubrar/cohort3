@@ -1,9 +1,8 @@
-let rray = [Calgary, -113, 51, 3000]
-    let [ name, lon, lat, popu] = rray;
+let myArray = [5, "apples", "BC"]
+    let [ num, str, origin] = rray;
     
  // array destructuring
 
-  alert(name);
-  alert(lon);
-  alert(lat);
-  alert(popu);
+  alert(num);
+  alert(str);
+  alert(origin);

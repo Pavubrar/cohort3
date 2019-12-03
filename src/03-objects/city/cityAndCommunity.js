@@ -39,6 +39,9 @@ class Community {
         this.cities =[];
         
     }
+    getCity(key) {
+        return this.cities.filter(city => city.key === key)[0];
+    }
     addNewCity(key, name, longitude, latitude, population){
         let message;
         console.log(this.cities);
@@ -85,6 +88,10 @@ class Community {
         })
         let mostSouthernCity = this.cities.filter(element => element.longitude === southernSphere);
         return mostSouthernCity[0];
+    }
+    getHighestKey() {
+        if (this.cities.length > 0) return this.cities.sort((a, b) => b.key - a.key)[0].key;
+        return 0;
     }
 
 }

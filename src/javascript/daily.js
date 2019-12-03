@@ -1,5 +1,5 @@
 
-//Nov22
+//Nov26
 let myArray = [
     { num: 5, str: "apples", origin: "BC" },
     { num: 7, str: "oranges", origin: "Florida" },
@@ -16,50 +16,51 @@ const functions = {
         console.log('hi from get data');
         let numbArr = [];
         for(let obj of myArray1) {
-            console.log('for loop', obj);
-            console.log(obj.num);
+            //console.log('for loop', obj);
+            //console.log(obj.num);
             let {num, str, origin: orig} = obj;
-            console.log(num);
-            console.log(str);
-            console.log(orig);
+            // console.log(num);
+            // console.log(str);
+            // console.log(orig);
             numbArr.push(num);
             //return numbArr;
         };
         return (numbArr);
         
     },
-        
-    // sortFunc = function(a,b) {   // using anonymous function 
-    //     return a.num - b.num;
-    // }
-    // }
+     sortFunction: () => {   
+    myArray.sort(function (a,b) {   // using anonymous function 
+        return a.num - b.num;
+    }),
 
-    // myArray.sort(function fruitSort(a, b) {      // using named function
-    //     if (a.str < b.str) return -1;
-    //     if (a.str > b.str) return 1;
-    //     return 0
-    // });
-    // console.log("myArray = ", myArray);
 
-    //  myArray.sort((a, b) => {
-    //     if (a.origin < b.origin) return 1;
-    //     if (a.origin > b.origin) return -1;
-    //     return 0
-    // });
-    // console.log("myArray = ", myArray);
+    myArray.sort(function fruitSort(a, b) {      // using named function
+        if (a.str < b.str) return -1;
+        if (a.str > b.str) return 1;
+        return 0
+    });
+    console.log("myArray = ", myArray);
 
-    // return myArray;
+     myArray.sort((a, b) => {
+        if (a.origin < b.origin) return 1;
+        if (a.origin > b.origin) return -1;
+        return 0
+    });
+    console.log("myArray = ", myArray);
+
+    return myArray;
+},
 
   //Nov21
-//  summarizePeople = (peopleArray) => {
-//     const summary = {};
-//     const peopleABBC = filterProvinces(peopleArray);
+ summarizePeople:(peopleArray) => {
+    const summary = {};
+    const peopleABBC =(peopleArray);
 
-//     summary.totalPeople = peopleABBC.length;
-//     summary.totalAge = peopleABBC.reduce(((accumulator, person) => accumulator + person.age), 0);
-//     summary.averageAge = summary.totalAge / summary.totalPeople;
-//     return summary;
-// }  ,
+    summary.totalPeople = peopleABBC.length;
+    summary.totalAge = peopleABBC.reduce(((accumulator, person) => accumulator + person.age), 0);
+    summary.averageAge = summary.totalAge / summary.totalPeople;
+    return summary;
+}  ,
     
 
 // Callback Exercise (Part 1) of November 8, 2019
