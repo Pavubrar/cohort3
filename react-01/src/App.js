@@ -24,19 +24,22 @@ class App extends React.Component {
 
   render() {
       let message;
-      if (this.state.counter % 2 === 0) {
+      if (this.counter % 2 === 0) {
         message = <EvenComp />
       } else {
         message = <OddComp />
       }
+      console.log(message);
+      // message: this.state.counter %2 === 0 ?
+      // <EvenComp/> : <OddComp/>
       return (
         <div className="App">
           <header className="App-header">
-            <MyComp whatToSay="What Ever" pushMe={this.onPushMe} />
+            <MyComp whatToSay="What Ever" onPushMe ={this.onPushMe} />
             {message}
             <img src={logo} className="App-logo" alt="logo" />
             Hello World
-          <h1>I am in control of this application and my name is Parveen Kaur {this.counter}{this.state.myState}</h1>{/* Edit <code>src/App.js</code> and save to reload. */}
+          <h1>I am in control of this application and my name is Parveen Kaur {this.counter}</h1>{/* Edit <code>src/App.js</code> and save to reload. */}
             <button onClick={this.onPushMe}>
               Push Me
             </button>
