@@ -49,16 +49,20 @@
     transform: rotate(0deg);
   }
 }
-    .Topnav{
+    .topnav{
       background-color:hsl(30, 100%, 50%);
       overflow: hidden;
     }
-    .Topnav a {
+    .topnav a {
       float: left;
       color: #f2f2f2;
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
       font-size: 17px;
+    }
+    .icon-img{
+      height: 100px;
+      
     }
 
