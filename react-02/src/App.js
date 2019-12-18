@@ -1,17 +1,18 @@
 import React from 'react';
 import logo, { ReactComponent as ReactLogo } from './logo.svg';
 import './App.css';
-import settings from './icons/cog.svg'
-import ticTacToe from './icons/tic-tac-toe.svg'
-import hooks from './icons/meat-hook.svg'
-import coins from './icons/money-stack.svg'
-import city from './icons/modern-city.svg'
-
+import settingsIcon from './icons/cog.svg'
+import ticTacToeIcon from './icons/tic-tac-toe.svg'
+import hooksIcon from './icons/meat-hook.svg'
+import coinsIcon from './icons/money-stack.svg'
+import cityIcon from './icons/modern-city.svg'
+//import tictactoe from './components/tictactoe/Square';
+import Game from './components/tictactoe/Game';
 class App extends React.Component {
-  constructor(){
+  constructor() {
     super()
     this.state = {
-      selected: ticTacToe
+      selected: ticTacToeIcon
     }
   }
   selectedItem = (event) => {
@@ -19,32 +20,32 @@ class App extends React.Component {
       selected: event.target.name
     });
   }
-  navIconMapper =() => {
-    const icons = [settings, ticTacToe, coins, city, hooks];
+  navIconMapper = () => {
+    const icons = [settingsIcon, ticTacToeIcon, coinsIcon, cityIcon, hooksIcon];
     return icons.map((icon, id) =>
-    <img key={id} name={icon} src={icon} className ={"icon-img"} alt={icon.id} onClick={this.selectedItem} />);
+      <img key={id} name={icon} src={icon} className={"icon-img"} alt={icon.id} onClick={this.selectedItem} />);
   }
-  showPage =() => {
-    if(this.state.selected === settings){
-      return < settings />;
-  //   }if(this.state.selected === ticTacToe){
-  //    return < TicTacToeGame />;
-  //   }if(this.state.selected === coins){
-  //   return < Accounts />;
-  //   }if(this.state.selected === city){
-  //   return < Cities />;
-  //   }if(this.state.selected === hooks){
-  //   return < Hooks />;
-    }
-   }
-  render (){
+  showPage = () => {
+    if (this.state.selected === settingsIcon) {
+      return <settings />;
+    } if (this.state.selected === ticTacToeIcon) {
+      return <Game />;
+    } //if(this.state.selected === coins){
+    //   return < Accounts />;
+    //   }if(this.state.selected === city){
+    //   return < Cities />;
+    //   }if(this.state.selected === hooks){
+    //   return < Hooks />;
+  }
+
+  render() {
 
     return (
       <div className="App">
-        <nav className ="topnav">
+        <nav className="topnav">
           {this.navIconMapper()}
         </nav>
-        {/* //{this.showPage()} */}
+        {this.showPage()}
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <ReactLogo className="App-logo" alt="logo" />

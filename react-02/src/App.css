@@ -62,7 +62,32 @@
       font-size: 17px;
     }
     .icon-img{
+      padding: 25px;
       height: 100px;
       
     }
+    .icon-img {
+      animation: spin 8s infinite linear;
+    }
+    /* @keyframes slide {
+      from {
+        transform: translateY(-135px);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+      to {
+        transform: translateY(-135px);
+      }
+    } */
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(359deg);
+      }
+    }
+   
+
 
