@@ -1,5 +1,5 @@
 import React from 'react';
-import logo, { ReactComponent as ReactLogo } from './logo.svg';
+// import logo  from './logo.svg';
 import './App.css';
 import settingsIcon from './icons/cog.svg'
 import ticTacToeIcon from './icons/tic-tac-toe.svg'
@@ -8,11 +8,13 @@ import coinsIcon from './icons/money-stack.svg'
 import cityIcon from './icons/modern-city.svg'
 //import tictactoe from './components/tictactoe/Square';
 import Game from './components/tictactoe/Game';
+import Starter from './components/starter/Starter';
+import AccountApp from './components/accounts/AccountApp';
 class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      selected: ticTacToeIcon
+      selected: Starter
     }
   }
   selectedItem = (event) => {
@@ -27,12 +29,13 @@ class App extends React.Component {
   }
   showPage = () => {
     if (this.state.selected === settingsIcon) {
-      return <settings />;
+      return <Starter />;
     } if (this.state.selected === ticTacToeIcon) {
       return <Game />;
-    } //if(this.state.selected === coins){
-    //   return < Accounts />;
-    //   }if(this.state.selected === city){
+    } if(this.state.selected === coinsIcon){
+     return <AccountApp />;
+       }
+       //if(this.state.selected === city){
     //   return < Cities />;
     //   }if(this.state.selected === hooks){
     //   return < Hooks />;
@@ -46,10 +49,10 @@ class App extends React.Component {
           {this.navIconMapper()}
         </nav>
         {this.showPage()}
-        <header className="App-header">
+        {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <ReactLogo className="App-logo" alt="logo" />
-          <p>
+          {/* <ReactLogo className="App-logo" alt="logo" /> */}
+          {/* <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
           <a
@@ -60,7 +63,7 @@ class App extends React.Component {
           >
             Learn React
           </a>
-        </header>
+        </header> */} 
       </div>
     );
   }

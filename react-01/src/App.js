@@ -15,27 +15,27 @@ class App extends React.Component {
   onPushMe = () => {
     this.counter++;
     this.setState({
-      myState: " now: " + this.counter
+      myState: this.counter
     });
 
     console.log(this.counter);
     console.log("You pushed me");
+    console.log(this.state.myState %2);
   }
 
   render() {
       let message;
-      if (this.counter % 2 === 0) {
-        message = <EvenComp />
-      } else {
-        message = <OddComp />
-      }
-      console.log(message);
-      // message: this.state.counter %2 === 0 ?
-      // <EvenComp/> : <OddComp/>
+      // if (this.counter % 2 === 0) {
+      //   message = <EvenComp />
+      // } else {
+      //   message = <OddComp />
+      // }
+      // console.log(message);
+      message=this.state.myState % 2 === 0 ? <EvenComp/> : <OddComp/>
       return (
         <div className="App">
           <header className="App-header">
-            <MyComp whatToSay="What Ever" onPushMe ={this.onPushMe} />
+            <MyComp whatToSay="What Ever" buttonEffect={this.onPushMe} />
             {message}
             <img src={logo} className="App-logo" alt="logo" />
             Hello World

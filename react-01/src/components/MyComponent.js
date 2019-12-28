@@ -2,11 +2,15 @@
 import React from 'react';
 
 class MyComp extends React.Component {
+    constructor(props){
+        super();
+    }
 
 	render() {
 			return (
 				<div>
 					<h1>Hello World from MyComp says {this.props.whatToSay}</h1>
+                    <button onClick={this.props.buttonEffect}>Push Me</button>
 				</div>
 			);
 		}
