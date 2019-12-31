@@ -31,7 +31,7 @@ class AccountForm extends React.Component {
                         type="text"
                         value={this.state.nameInput}
                         onChange={this.handleInputChange} />
-                    </label>
+                    </label> <br/>
                     <label>Intial Balance: 
                     <span className="input-symbol-dollar">
                         <input className="amount-input-dollar"
@@ -42,8 +42,8 @@ class AccountForm extends React.Component {
                         min="0"
                         step="0.01"/>
                     </span>
-                    </label>
-                    <button>Add Account</button><br/><br/>
+                    </label> <br/> <br/>
+                    <button id="idadd">Add Account</button><br/><br/>
                     <p id="idAccountmessage">{this.props.message}</p>
                 </form>
             </div>

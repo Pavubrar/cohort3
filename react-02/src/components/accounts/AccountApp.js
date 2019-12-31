@@ -1,6 +1,6 @@
 import React from "react";
 import AccountCard from "./AccountCard";
-import { Account, AccountController } from "./Account"
+import { AccountController } from "./Account"
 import './AccountApp.css';
 import AccountForm from './AccountForm';
 

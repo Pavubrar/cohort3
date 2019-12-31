@@ -10,6 +10,7 @@ import cityIcon from './icons/modern-city.svg'
 import Game from './components/tictactoe/Game';
 import Starter from './components/starter/Starter';
 import AccountApp from './components/accounts/AccountApp';
+import Cities from './components/cities/CitiesApp';
 class App extends React.Component {
   constructor() {
     super()
@@ -35,9 +36,10 @@ class App extends React.Component {
     } if(this.state.selected === coinsIcon){
      return <AccountApp />;
        }
-       //if(this.state.selected === city){
-    //   return < Cities />;
-    //   }if(this.state.selected === hooks){
+       if(this.state.selected === city){
+     return < Cities />;
+      }
+      //if(this.state.selected === hooks){
     //   return < Hooks />;
   }
 

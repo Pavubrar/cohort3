@@ -37,7 +37,17 @@ body {
 }
 
 .form > * > *{
-    margin: 2px 10px 2px 2px;
+    margin: 5px 10px 5px 5px;
+}
+#idadd{
+    color: rgb(92, 15, 235);
+    border-radius: 45%;
+    height: 30px;
+    width: auto;
+    border-color: darkcyan;
+}
+#idadd:hover {
+background-color: darkgoldenrod;
 }
 
 #idAccountList {
@@ -59,6 +69,7 @@ grid-row-start: span 2;
 
 
 #idCardPanel {
+    
     background-color: #DDE4FF;
     height: 700px;
     text-align: center;
@@ -70,7 +81,7 @@ grid-row-start: span 2;
     background-color: #FFE09B;
     margin: 30px;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 .card > * {
     margin: 15px 3px 5px 3px;

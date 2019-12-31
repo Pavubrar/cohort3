@@ -50,7 +50,7 @@
   }
 }
     .topnav{
-      background-color:hsl(30, 100%, 50%);
+      background-color:hsl(30, 79%, 85%);
       overflow: hidden;
     }
     .topnav a {
@@ -62,24 +62,33 @@
       font-size: 17px;
     }
     .icon-img{
-      padding: 25px;
-      height: 100px;
       
+      margin: 25px ;
+      height: 100px;
+      background-color: cornflowerblue;
     }
-    .icon-img {
-      animation: spin 8s infinite linear;
+    .icon-img:visited{
+      color: red;
     }
-    /* @keyframes slide {
-      from {
+    .icon-img:hover {
+      opacity: 1;
+      transform:scale(2);
+      transition: all 4s ease;
+      border-radius: 100%;
+      color: coral;
+      animation: spin 10s infinite linear;
+    }
+     /* @keyframes slide {
+      0% {
         transform: translateY(-135px);
       }
       50% {
         transform: translateY(-5px);
       }
-      to {
+      80%{
         transform: translateY(-135px);
       }
-    } */
+    }  */
     @keyframes spin {
       from {
         transform: rotate(0deg);
