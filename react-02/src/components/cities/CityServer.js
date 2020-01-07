@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import serverFunctions from './serverFunction.js'
 
 class CityServer extends Component {
-    constructor() {
+    constructor(props) {
         super(props);
         this.state = {
             city: this.props.city,

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './CitiesApp.css';
-import { CreateCityForm } from "CityForm";
+//import { CreateCityForm } from "./CityForm.js";
 import { Community } from './cities';
-import serverFunctions from './serverFunctions.js';
-import CityServer from 'CityServer';
+import serverFunctions from './serverFunction.js';
+import CityServer from './CityServer.js';
 import CityComponent from './CityComponent.js';
 import CityPoint from './CityPoint';
 
@@ -21,10 +21,10 @@ class CitiesApp extends Component {
         this.province = new Community([])
     }
     componentDidMount = async () => {
-        const errorMessage = await serverFunction.loadData(this.province);
+        const errorMessage = await serverFunctions.loadData(this.province);
         if (errorMessage) {
             this.showfetchMessage(errorMessage);
-        } else if (this.province.cityList.length < 1) {
+        } else if (this.province.cities.length < 1) {
             this.showfetchMessage("Warning: server database is empty.")
         } else {
             this.calcReport()
@@ -40,17 +40,18 @@ class CitiesApp extends Component {
             this.setState({
                 formMessage: ""
             });
-            const key = this.province.creatCity(key, nameInput, latInput, longInput, popInput)
+            const key = this.province.getHighestKey() + 1;
+            const newCity = this.province.addNewCity(key, nameInput, latInput, longInput, popInput)
             const errorMessage = await serverFunctions.addData(newCity);
             if (errorMessage) {
-                this.province.deleteCity(key);
+                this.province.removeCity(key);
                 this.showfetchMessage(errorMessage);
             } else {
                 this.calcReport();
             }
         }
     }
-    removeCity = async (key) => {
+    deleteCity = async (key) => {
         const errorMessage = await serverFunctions.deleteData(key);
         if (errorMessage) {
             this.showfetchMessage(errorMessage);
@@ -71,7 +72,7 @@ class CitiesApp extends Component {
         this.setState({
             totalPopulation: ""
         })
-        if (this.province.cityList.length > 1) {
+        if (this.province.cities.length > 1) {
             document.getElementById("idCityReport").classList.remove("hidden");
 
             const mostNorth = this.province.getMostNorthern();
@@ -89,7 +90,8 @@ class CitiesApp extends Component {
         } else {
             document.getElementById("idCityReport").classList.add("hidden");
         }
-        onSelectPoint = event => {
+    }
+        onSelectPoint = (event) => {
             const selectedPointKey = Number(event.target.attributes.keyid.value);
             const newSelectedCity = this.province.getCity(selectedPointKey);
             this.setState({
@@ -97,7 +99,8 @@ class CitiesApp extends Component {
             });
         }
         renderPoints = () => {
-            return this.province.cityList.map(city => {
+            console.log(this.province);
+            return this.province.cities.map(city => {
                 return <CityPoint
                     key={city.key}
                     keyID={city.key}
@@ -121,7 +124,7 @@ class CitiesApp extends Component {
                 return null;
             }
         }
-    }
+    
     render(){
     return (
     < CityComponent 

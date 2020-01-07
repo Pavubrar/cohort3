@@ -1,5 +1,7 @@
-import { React } from 'react';
+import * as React  from 'react';
+import {CreateCityForm} from './CityForm';
 function CityComponent(props) {
+    
     return (
         <div id="idGridContainer">
             <div id="idSummaryPanel">
@@ -38,6 +40,8 @@ function CityComponent(props) {
 
             </div>
         </div>
-    )
+    );
 }
+
+
 export default CityComponent;

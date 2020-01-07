@@ -63,7 +63,7 @@ body {
 }
 
 .map {
-  background-image: url("C:\code\cohort3\react-02\src\images\Alberta.png"); /* created from GOA opendata */
+  background-image: url("C:\Users\Owner\code\cohort3\react-02\src\icons\Alberta.png"); /* created from GOA opendata */
   opacity: 0.75;
   width: 330px;
   height: 550px;

@@ -70,4 +70,4 @@ class CreateCityForm extends Component {
   }
 }
 
-export default CreateCityForm;
+export {CreateCityForm};

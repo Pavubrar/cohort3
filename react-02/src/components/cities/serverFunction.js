@@ -1,4 +1,4 @@
-import City from './cities.js'
+import {City} from './cities.js'
 const url = 'http://localhost:5000/';
 
 const serverFunctions = {
@@ -24,12 +24,12 @@ const serverFunctions = {
         json.statusText = response.statusText;
         return json;
     },
-    async loadData(province){
+    async loadData(newCommunity){
         try{
             let data = await this.postData(url + 'all');
-            province.cityList = data.map(datacity => new City (dataCity.key,dataCity.name, dataCity.lat, dataCity.long, dataCity.pop))
+            newCommunity.cities = data.map(dataCity => new City (dataCity.key, dataCity.name, dataCity.latitude, dataCity.longitude, dataCity.population))
             console.log("Cities loaded: ")
-            console.log(province.cityList);
+            console.log(newCommunity.cities);
             return null;
         } catch(error){
             console.log(error);

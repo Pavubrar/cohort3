@@ -11,6 +11,7 @@ import Game from './components/tictactoe/Game';
 import Starter from './components/starter/Starter';
 import AccountApp from './components/accounts/AccountApp';
 import Cities from './components/cities/CitiesApp';
+import Hooks from './components/linkedList/LinkedListComp';
 class App extends React.Component {
   constructor() {
     super()
@@ -36,11 +37,12 @@ class App extends React.Component {
     } if(this.state.selected === coinsIcon){
      return <AccountApp />;
        }
-       if(this.state.selected === city){
+       if(this.state.selected === cityIcon){
      return < Cities />;
       }
-      //if(this.state.selected === hooks){
-    //   return < Hooks />;
+      if(this.state.selected === hooksIcon){
+      return < Hooks />;
+      }
   }
 
   render() {

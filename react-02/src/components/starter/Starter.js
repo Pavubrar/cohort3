@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo, { ReactComponent as ReactLogo } from './logo.svg';
+import { ReactComponent as ReactLogo } from './logo.svg';
 import './Starter.css';
 
 

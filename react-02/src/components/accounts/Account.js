@@ -19,14 +19,14 @@ class AccountController {
         this.accountArray = [];
     }
     createAccount(accountType, initialBalance) {
-        if (!this.getAccount(accountType)) {
+        if (!this.getAccounts(accountType)) {
             this.accountArray.push(new Account(accountType,Math.round(Number(initialBalance)*100)/100));
            return "";
         } else {
             return `you already have an ${accountType}, please select different Account Type`
         }
     }
-    getAccount(accountType) {
+    getAccounts(accountType) {
         return this.accountArray.filter(account => account.accountType === accountType)[0];
     }
     removeAccount(accountType) {

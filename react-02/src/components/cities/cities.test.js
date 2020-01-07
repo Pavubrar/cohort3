@@ -1,86 +1,53 @@
-import { City, Community } from './cities.js'
-
-const lethbridge = new City(4, "Lethbridge", 49.7, -112.8, 101500);
-const airdrie = new City(5, "Airdrie", 51.2, -114.0, 70000);
-const sundre = new City(6, "Sundre", 51.8, -114.5, 3000);
-const caroline = new City(7, "Caroline", 52.09, -114.74, 500);
-const bearberry = new City(8, "Bearberry", 51.5, -115.0, 75);
-const spooky = new City(9, "Spooky", -55, -110.5, 0);
+import {City, Community} from "./cities.js";
 
 
-describe('City Testing', () => {
-
-    test('City properties', () => {
-        expect(lethbridge.name).toEqual("Lethbridge");
-        expect(lethbridge.pop).toEqual(101500);
-    });
-
-    test('show() returns display string of properties', () => {
-        expect(lethbridge.show()).toEqual(`
-Key: 4
-Lat: 49.7
-Long: -112.8
-Population: 101500`
-            );
-    });
-
-    test('movedIn(value) adds value to pop', () => {
-        lethbridge.movedIn(1500);
-        expect(lethbridge.pop).toEqual(103000);
-    });
-
-    test('movedOut(value) subtracts value from pop', () => {
-        lethbridge.movedOut(2999);
-        expect(lethbridge.pop).toEqual(100001);
-    });
-
-    test('howBig() returns appropriate classification string', () => {
-        expect(lethbridge.howBig()).toEqual("City");
-        expect(airdrie.howBig()).toEqual("Large Town");
-        expect(sundre.howBig()).toEqual("Town");
-        expect(caroline.howBig()).toEqual("Village");
-        expect(bearberry.howBig()).toEqual("Hamlet");
-        expect(spooky.howBig()).toEqual("Ghost Town");
-    });
-
-    test('whichSphere(city) returns appropriate hemisphere', () => {
-        expect(lethbridge.whichSphere()).toEqual("Northern Hemisphere");
-        expect(spooky.whichSphere()).toEqual("Southern Hemisphere");
-    });
-});
-
-describe('Community Controller Testing', () => {
-    const province = new Community([lethbridge, airdrie, sundre, spooky]);
+let newCity = new City(1, "Calgary", -114, 51, 28);
 
 
-    test('getCity(key) returns city by key', () => {
-        expect(province.getCity(4)).toEqual({ "key": 4, "name": "Lethbridge", "lat": 49.7, "long": -112.8, "pop": 100001 });
-    });
 
-    test('createCity() adds new city to cityList', () => {
-        expect(province.createCity(7, "Caroline", 52.09, -114.74, 500).key).toEqual(7);
-        expect(province.cityList.length).toEqual(5);
-    });
-
-    test('deleteCity(key) removes city of that key', () => {
-        province.deleteCity(5);
-        expect(province.cityList.length).toEqual(4);
-        expect(province.cityList[1].name).toEqual("Sundre");
-    });
-
+ test('show city\'s info',() => {
+     
+     expect(newCity.showCity()).toEqual("Name: Calgary\nLongitude: -114\nLatitude: 51\nPopulation: 28");
+     expect(newCity.movedIn(100)).toEqual(128);
+     expect(newCity.movedOut(3)).toEqual(125);
+     expect(newCity.howBigCity()).toEqual("Village");
+     expect(newCity.movedOut(116)).toEqual(9);
+     expect(newCity.howBigCity()).toEqual("Hamlet");
+     expect(newCity.movedIn(10001)).toEqual(10010)
+     expect(newCity.howBigCity()).toEqual("Town");
+     expect(newCity.movedIn(10001)).toEqual(20011)
+     expect(newCity.howBigCity()).toEqual("Large Town");
+     expect(newCity.movedIn(100000)).toEqual(120011)
+     expect(newCity.howBigCity()).toEqual("City");
+ });
+  
+ let newCommunity = new Community;
+ newCommunity.addNewCity(1, "Calgary", -114, 51, 28);
+ newCommunity.addNewCity(2, "Edminton", -121, 37, 125);
+ newCommunity.addNewCity(3, "Chestermere", -113, 51, 10010);
+ newCommunity.addNewCity(4, "Banff", -116, 51, 20011);
+ newCommunity.addNewCity(5, "Camrose", -112, 53, 120011);
+ test('adding new city', () => {
+     expect(newCommunity.cities.length).toEqual(5);
+      expect(newCommunity.getPopulation()).toEqual(150185);
+      newCommunity.removeCity(3);
+      expect(newCommunity.cities.length).toEqual(4);
+      expect(newCommunity.getMostNorthern()).toEqual( {"key": 5, "latitude": 53, "longitude": -112, "name": "Camrose", "population": 120011});
+      expect(newCommunity.getMostSouthern()).toEqual({"key": 2, "latitude": 37, "longitude": -121, "name": "Edminton", "population": 125} );
+      expect(newCommunity.cities.length).toEqual(4);
+  })
     test('getPopulation() returns total population of community', () => {
-        expect(province.getPopulation()).toEqual(103501);
+        expect(newCommunity.getPopulation()).toEqual(140175);
     });
 
     test('getMostNorthern() returns most northern city', () => {
-        expect(province.getMostNorthern().name).toEqual("Caroline");
+        expect(newCommunity.getMostNorthern().name).toEqual("Camrose");
     });
 
     test('getMostSouthern() returns most southern city', () => {
-        expect(province.getMostSouthern().name).toEqual("Spooky");
+        expect(newCommunity.getMostSouthern().name).toEqual("Edminton");
     });
 
     test('getHighestKey() returns highest key', () => {
-        expect(province.getHighestKey()).toEqual(9);
+        expect(newCommunity.getHighestKey()).toEqual(5);
     });
-});

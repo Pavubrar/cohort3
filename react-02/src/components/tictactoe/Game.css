@@ -26,6 +26,7 @@ ol,ul {
     padding: 0;
     text-align: center;
     width: 34px;
+    text-decoration-style: wavy;
 }
 .square:focus {
     outline: none;

@@ -1,79 +1,100 @@
 class City {
-    constructor(key, name, lat, long, pop){
-        this.key =key;
-        this.name = name;
-        this.lat = lat;
-        this.long = long;
-        this.pop = pop;
-    }
-    show(){
-        return `
-        Key: ${this.key}
-        Name: ${ this.name}
-        Lat: ${this.lat}
-        Long: ${this.long}
-        Population: ${this.pop}`
-    }
-    movedIn(value) {
-        this.pop += Number(value);
-    }
-
-    movedOut(value) {
-        this.pop -= Number(value);
-    }
-
-    howBig() {
-        if (this.pop > 100000) return "City";
-        if (this.pop > 20000) return "Large Town";
-        if (this.pop > 1000) return "Town";
-        if (this.pop > 100) return "Village";
-        if (this.pop > 0) return "Hamlet";
-        return "Ghost Town";
-    }
-
-    whichSphere() {
-        if (this.lat > 0) return "Northern Hemisphere";
-        return "Southern Hemisphere";
-    }
+    constructor(key, name, longitude, latitude, population){
+    this.key = key;
+    this.name =  name;
+    this.longitude = longitude;
+    this.latitude  = latitude;
+    this.population = population;
+}
+showCity(){
+return `Name: ${this.name}\nLongitude: ${this.longitude}\nLatitude: ${this.latitude}\nPopulation: ${this.population}`;
+}
+movedIn(num){
+    return this.population += num;
+}
+movedOut(num){
+    if((this.population - num) >= 0){
+    return this.population -= num; 
+    //console.log(this.population  + " decrease ");
+    }else
+    return "Population can not be less than 0";
 }
 
+howBigCity(){
+    if(this.population <= 100) return "Hamlet";
+    if(this.population > 100 && this.population < 1000) return "Village";
+    if(this.population > 1000 && this.population <= 20000) return "Town";
+    if(this.population > 20000 && this.population <= 100000 ) return "Large Town";
+    if(this.population >100000) return "City";
 
- class Community {
-    constructor(cityList) {
-        this.cityList = cityList;
+}
+whichSphere(){
+    if (this.latitude > 0) return "Northern Hemisphere";
+    if(this.latitude <= 0) return "Southern Hemisphere";// if (city.lat > 0) return "Northern Hemisphere";
+}       
+}
+
+class Community {
+    constructor(){
+        this.cities =[];
+        
     }
-
     getCity(key) {
-        return this.cityList.filter(city => city.key === key)[0];
+        return this.cities.filter(city => city.key === key)[0];
     }
+    addNewCity(key, name, longitude, latitude, population){
+        let message;
+        console.log(this.cities);
+        console.log(this.cities.filter((itm) => (itm.latitude === latitude && itm.longitude === longitude).length === 0));
+        let result =this.cities.filter((itm) => (itm.latitude === latitude && itm.longitude === longitude));
+        console.log(result);
+        
 
-    createCity(key, name, lat, long, pop) {
-        const city = new City(key, name, Number(lat), Number(long), Number(pop));
-        this.cityList.push(city);
-        return city;
+        if(result.length === 0) {
+            let NewCity = new City(key, name, longitude, latitude, population);
+            this.cities.push(NewCity);
+            message = `The new city has been added.Name: ${name}`;
+        }else{
+            message = "There is already a city with the same latitude and longitude. \nPlease edit your inputs";
+        }
+        return message;
     }
-
-    deleteCity(key) {
-        this.cityList = this.cityList.filter(city => city.key !== key);
+    getPopulation(){
+        return this.cities.reduce((acc,itm) => itm.population + acc,0);
     }
-
-    getPopulation() {
-        return this.cityList.reduce(((accumulator, city) => accumulator + city.pop), 0);
+    removeCity(key){
+        //console.log(this.cities.length);
+        this.cities = this.cities.filter((itm) => itm.key !== key);
+       // console.log(this.cities.length);
     }
-
-    getMostNorthern() {
-        const copy = this.cityList.slice();
-        return copy.sort((a, b) => b.lat - a.lat)[0];
+    getMostNorthern(){
+        let northernSphere = this.cities[0].latitude;
+        this.cities.forEach(element => {
+            if(element.latitude > northernSphere){
+                northernSphere = element.latitude
+                console.log(northernSphere)
+            }
+            return northernSphere;
+        })
+        let mostNorthernCity = this.cities.filter(element => element.latitude ===northernSphere)[0]
+        console.log(mostNorthernCity)
+        return mostNorthernCity;
     }
-
-    getMostSouthern() {
-        const copy = this.cityList.slice();
-        return copy.sort((a, b) => a.lat - b.lat)[0];
+    getMostSouthern(){
+        let southernSphere = this.cities[0].longitude;
+        this.cities.forEach(element => {
+            if(element.longitude < southernSphere){
+            southernSphere = element.longitude
+            }
+            return southernSphere;
+        })
+        let mostSouthernCity = this.cities.filter(element => element.longitude === southernSphere)[0];
+        return mostSouthernCity;
     }
-
     getHighestKey() {
-        if (this.cityList.length > 0) return this.cityList.sort((a, b) => b.key - a.key)[0].key;
+        if (this.cities.length > 0) return this.cities.sort((a, b) => b.key - a.key)[0].key;
         return 0;
     }
+
 }
-export default {City, Community};
+export {City, Community};
