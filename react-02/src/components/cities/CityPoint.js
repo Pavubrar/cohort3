@@ -9,7 +9,7 @@ class CityPoint extends Component {
   }
 
   render() {
-    const [lat, long] = this.coordinateConverter(this.props.city.lat, this.props.city.long);
+    const [lat, long] = this.coordinateConverter(this.props.city.latitude, this.props.city.longitude);
     return (
       <>
       <circle

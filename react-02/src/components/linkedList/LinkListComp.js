@@ -1,7 +1,7 @@
 import React, { useState, Fragment, useEffect } from "react";
 import "./LinkedList.css";
 import Button from "react-bootstrap/Button";
-import { LinkedList } from "./LinkedList";
+import LinkedList  from "./LinkedList";
 
 const newList = new LinkedList();
 
@@ -9,6 +9,7 @@ const LinkedListApp = () => {
     const [subject, setSubject] = useState("");
     const [amount, setAmount] = useState("");
     const [current, setCurrent] = useState("");
+    const [target, setTarget] = useState("");
     const [total, setTotal] = useState("");
     const [focus, setFocus] = useState("subject");
 

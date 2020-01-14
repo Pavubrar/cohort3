@@ -27,7 +27,7 @@ const serverFunctions = {
     async loadData(newCommunity){
         try{
             let data = await this.postData(url + 'all');
-            newCommunity.cities = data.map(dataCity => new City (dataCity.key, dataCity.name, dataCity.latitude, dataCity.longitude, dataCity.population))
+            newCommunity.cities = data.map(dataCity => new City (dataCity.key, dataCity.name, dataCity.longitude, dataCity.latitude,dataCity.population))
             console.log("Cities loaded: ")
             console.log(newCommunity.cities);
             return null;

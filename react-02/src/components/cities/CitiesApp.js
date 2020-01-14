@@ -32,6 +32,7 @@ class CitiesApp extends Component {
     }
     addCity = async (inputs) => {
         const { nameInput, latInput, longInput, popInput } = inputs;
+        console.log(nameInput);
         if (!nameInput) {
             this.setState({
                 formMessage: "Please enter a city name."
@@ -41,8 +42,14 @@ class CitiesApp extends Component {
                 formMessage: ""
             });
             const key = this.province.getHighestKey() + 1;
-            const newCity = this.province.addNewCity(key, nameInput, latInput, longInput, popInput)
-            const errorMessage = await serverFunctions.addData(newCity);
+            console.log(key);
+            const addCityMessage = this.province.addNewCity(key, nameInput,Number(longInput), Number(latInput), Number(popInput))
+
+            this.setState({
+                formMessage: addCityMessage
+            });
+
+            const errorMessage = await serverFunctions.addData(this.province.cities[this.province.cities.length - 1]);
             if (errorMessage) {
                 this.province.removeCity(key);
                 this.showfetchMessage(errorMessage);
@@ -79,8 +86,8 @@ class CitiesApp extends Component {
             const mostSouth = this.province.getMostSouthern();
 
             const totalPopulationUpdate = this.province.getPopulation();
-            const mostNorthernUpdate = `${mostNorth.name} at ${mostNorth.lat} latitude`;
-            const mostSouthernUpdate = `${mostSouth.name} at ${mostSouth.lat} latitude`;
+            const mostNorthernUpdate = `${mostNorth.name} at ${mostNorth.latitude} latitude`;
+            const mostSouthernUpdate = `${mostSouth.name} at ${mostSouth.latitude} latitude`;
 
             this.setState({
                 totalPopulation: totalPopulationUpdate,

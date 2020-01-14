@@ -11,7 +11,7 @@ import Game from './components/tictactoe/Game';
 import Starter from './components/starter/Starter';
 import AccountApp from './components/accounts/AccountApp';
 import Cities from './components/cities/CitiesApp';
-import Hooks from './components/linkedList/LinkedListComp';
+import Hooks from './components/linkedList/LinkListComp';
 class App extends React.Component {
   constructor() {
     super()

@@ -55,4 +55,4 @@ class LinkedList {
         return this.current = this.current.nextNode;
     }
 }
-export default {LinkedList};
+export default LinkedList;
