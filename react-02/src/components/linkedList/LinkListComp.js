@@ -1,7 +1,9 @@
-import React, { useState, Fragment, useEffect } from "react";
+import React, { useState, Fragment, useEffect, useContext } from "react";
 import "./LinkedList.css";
-import Button from "react-bootstrap/Button";
-import LinkedList  from "./LinkedList";
+//import Button from "react-bootstrap/Button";
+import {LinkedList}  from "./LinkedList";
+import {ThemeContext} from './Context.js';
+
 
 const newList = new LinkedList();
 
@@ -9,9 +11,12 @@ const LinkedListApp = () => {
     const [subject, setSubject] = useState("");
     const [amount, setAmount] = useState("");
     const [current, setCurrent] = useState("");
-    const [target, setTarget] = useState("");
+    
     const [total, setTotal] = useState("");
     const [focus, setFocus] = useState("subject");
+    const context = useContext(ThemeContext);
+    // let target = context.targetItem;
+    // let setTarget = context.changeTarget;
 
     useEffect(() => {
         document.getElementById(focus).focus();
@@ -35,9 +40,9 @@ const LinkedListApp = () => {
     }
 
     const handleInsert = () => {
-        newList.insert(subject, amount);
+        newList.add(subject, amount);
         setCurrent(newList.current);
-        setTarget(newList.current);
+        //setTarget(newList.current);
         setTotal(newList.total());
         setSubject("");
         setAmount("");
@@ -48,35 +53,35 @@ const LinkedListApp = () => {
     const handleFirst = () => {
         newList.first();
         setCurrent(newList.current);
-        setTarget(newList.current);
+        //setTarget(newList.current);
         console.log("first clicked");
     };
 
     const handleLast = () => {
         newList.last();
         setCurrent(newList.current);
-        setTarget(newList.current);
+        //setTarget(newList.current);
         console.log("last clicked");
     };
 
     const handleNext = () => {
         newList.next();
         setCurrent(newList.current);
-        setTarget(newList.current);
+        //setTarget(newList.current);
         console.log("next clicked");
     };
 
     const handlePrevious = () => {
         newList.prev();
         setCurrent(newList.current);
-        setTarget(newList.current);
+        //setTarget(newList.current);
         console.log("previous clicked");
     };
 
     const handleDelete = () => {
         newList.delete();
         setCurrent(newList.current);
-        setTarget(newList.current);
+       // setTarget(newList.current);
         setTotal(newList.total());
         console.log("delete clicked");
     };
@@ -148,31 +153,31 @@ const LinkedListApp = () => {
                         />
                         <br />
                         <br />
-                        <Button onClick={handleFirst} id="reset" variant="primary">
-                            <b style={{ color: "white" }}>{"|<"}</b>
-                        </Button>
-                        <Button onClick={handlePrevious} id="reset" variant="primary">
-                            <b style={{ color: "white" }}>{"<<"}</b>
-                        </Button>
-                        <Button onClick={handleInsert} id="reset" variant="primary">
-                            <b style={{ color: "white" }}>{"[++]"}</b>
-                        </Button>
-                        <Button onClick={handleDelete} id="reset" variant="primary">
-                            <b style={{ color: "white" }}>{"[- -]"}</b>
-                        </Button>
-                        <Button onClick={handleNext} id="reset" variant="primary">
-                            <b style={{ color: "white" }}>{">>"}</b>
-                        </Button>
-                        <Button onClick={handleLast} id="reset" variant="primary">
-                            <b style={{ color: "white" }}>{">|"}</b>
-                        </Button>
+                        <button onClick={handleFirst} id="reset" variant="primary">
+                            <b style={{ color: "red" }}>{"|<"}</b>
+                        </button>
+                        <button onClick={handlePrevious} id="reset" variant="primary">
+                            <b style={{ color: "red" }}>{"<<"}</b>
+                        </button>
+                        <button onClick={handleInsert} id="reset" variant="primary">
+                            <b style={{ color: "red" }}>{"[++]"}</b>
+                        </button>
+                        <button onClick={handleDelete} id="reset" variant="primary">
+                            <b style={{ color: "red" }}>{"[- -]"}</b>
+                        </button>
+                        <button onClick={handleNext} id="reset" variant="primary">
+                            <b style={{ color: "red" }}>{">>"}</b>
+                        </button>
+                        <button onClick={handleLast} id="reset" variant="primary">
+                            <b style={{ color: "red" }}>{">|"}</b>
+                        </button>
                         <div
                             id="resultsLinkedList"
                             className={newList.head ? null : "hidden"}
                         >
                             <span
                                 style={{
-                                    color: "grey",
+                                    color: "blue",
                                     fontWeight: "bold"
                                 }}
                             >
@@ -180,16 +185,16 @@ const LinkedListApp = () => {
               </span>
                             <p
                                 style={{
-                                    color: "grey"
+                                    color: "pink"
                                 }}
                             >
-                                {target
-                                    ? `current: ${target.showDetails()}`
+                                {current
+                                    ? `current: ${current.showDetails()}`
                                     : "nothing selected"}
                             </p>
                             <div id="resultsRender">
                                 {renderNodes()}
-                                <span style={{ color: "#808080" }}> Total: {total}</span>
+                                <span style={{ color: "blue" }}> Total: {total}</span>
                             </div>
                         </div>
                     </div>

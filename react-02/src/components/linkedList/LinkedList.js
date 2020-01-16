@@ -12,7 +12,7 @@ showDetails(){
 }
 class LinkedList {
     constructor(){
-        const node = new Node(null, null);
+        const node = new ListNode(null, null);
       node.nextNode = node;
       node.prevNode = node;
       this.baseNode = node;
@@ -33,7 +33,7 @@ class LinkedList {
         return this.current = this.current.prevNode.subject === null ? this.current.prevNode.prevNode : this.current.prevNode;
     }
     add(subject,amount){
-        const node = new Node(subject, amount);
+        const node = new ListNode(subject, amount);
         node.nextNode = this.current.nextNode;
         node.prevNode = this.current;
         node.prevNode.nextNode = node;
@@ -55,4 +55,4 @@ class LinkedList {
         return this.current = this.current.nextNode;
     }
 }
-export default LinkedList;
+export {ListNode, LinkedList};
