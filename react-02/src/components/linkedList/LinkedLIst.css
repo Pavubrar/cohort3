@@ -60,9 +60,9 @@ form {
   border: solid #fff 1px;
 }
 
-.hidden {
+/* .hidden {
   visibility: hidden;
-}
+} */
 
 #node-list,
 #node-list-current {

@@ -173,7 +173,7 @@ const LinkedListApp = () => {
                         </button>
                         <div
                             id="resultsLinkedList"
-                            className={newList.head ? null : "hidden"}
+                            //className={ "hidden"}
                         >
                             <span
                                 style={{
