@@ -20,7 +20,7 @@ test('sortFunctions()', () => {
 
 // //Nov21
 test('summarizePeople() return object of total number of people, total age, and the average age - from Alberta or BC only', () => {
-    expect(functions.summarizePeople(people)).toEqual({ totalPeople: 22, totalAge: 838, averageAge: 38.09090909090909 });
+    expect(functions.summarizePeople(people)).toEqual({ totalPeople: 44, totalAge: 2045, averageAge: 46.47727272727273 });
 });
 const data = {
     staff: [

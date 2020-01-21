@@ -14,8 +14,9 @@ movedIn(num){
 }
 movedOut(num){
     if((this.population - num) >= 0){
-    this.population -= num; 
-    //console.log(this.population  + " decrease ");
+    this.population = this.population - num;
+    return this.population; 
+    //console.log(this.population  + " people left ");
     }else
     return "Population can not be less than 0";
 }
@@ -44,10 +45,10 @@ class Community {
     }
     addNewCity(key, name, longitude, latitude, population){
         let message;
-        console.log(this.cities);
-        console.log(this.cities.filter((itm) => (itm.latitude === latitude && itm.longitude === longitude).length === 0));
+        //console.log(this.cities);
+       // console.log(this.cities.filter((itm) => (itm.latitude === latitude && itm.longitude === longitude).length === 0));
         let result =this.cities.filter((itm) => (itm.latitude === latitude && itm.longitude === longitude));
-        console.log(result);
+        //console.log(result);
         
 
         if(result.length === 0) {
@@ -63,21 +64,21 @@ class Community {
         return this.cities.reduce((acc,itm) => itm.population + acc,0);
     }
     removeCity(key){
-        console.log(this.cities.length);
+        //console.log(this.cities.length);
         this.cities = this.cities.filter((itm) => itm.key !== key);
-        console.log(this.cities.length);
+        //console.log(this.cities.length);
     }
     getMostNorthern(){
         let northernSphere = this.cities[0].latitude;
         this.cities.forEach(element => {
             if(element.latitude > northernSphere){
                 northernSphere = element.latitude
-                console.log(northernSphere)
+               // console.log(northernSphere)
             }
             return northernSphere;
         })
         let mostNorthernCity = this.cities.filter(element => element.latitude ===northernSphere)[0]
-        console.log(mostNorthernCity)
+        //console.log(mostNorthernCity)
         return mostNorthernCity;
     }
     getMostSouthern(){

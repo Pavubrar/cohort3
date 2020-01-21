@@ -7,7 +7,7 @@ let newCity = new City(1, "Calgary", -114, 51, 28);
 
  test('show city\'s info',() => {
      
-     expect(newCity.showCity()).toEqual("Name: Calgary\nLongitude: -114\nLatitude: 51\nPopulation: 28");
+     expect(newCity.showCity()).toEqual(" name: Calgary\nlongitude: -114,\n latitude: 51,\n population: 28");
      expect(newCity.movedIn(100)).toEqual(128);
      expect(newCity.movedOut(3)).toEqual(125);
      expect(newCity.howBigCity()).toEqual("Village");
@@ -28,11 +28,11 @@ let newCity = new City(1, "Calgary", -114, 51, 28);
  newCommunity.addNewCity(4, "Banff", -116, 51, 20011);
  newCommunity.addNewCity(5, "Camrose", -112, 53, 120011);
  test('adding new city', () => {
-      expect(newCommunity.Cities.length).toEqual(5);
+      expect(newCommunity.cities.length).toEqual(5);
       expect(newCommunity.getPopulation()).toEqual(150185);
       newCommunity.removeCity(3);
-      expect(newCommunity.Cities.length).toEqual(4);
-      expect(newCommunity.getMostNorthern()).toEqual( [{"Key": 5, "Latitude": 53, "Longitude": -112, "Name": "Camrose", "Population": 120011}]);
-      expect(newCommunity.getMostSouthern()).toEqual({"Key": 2, "Latitude": 37, "Longitude": -121, "Name": "Edminton", "Population": 125} );
+      expect(newCommunity.cities.length).toEqual(4);
+      expect(newCommunity.getMostNorthern()).toEqual( {"key": 5, "latitude": 53, "longitude": -112, "name": "Camrose", "population": 120011});
+      expect(newCommunity.getMostSouthern()).toEqual({"key": 2, "latitude": 37, "longitude": -121, "name": "Edminton", "population": 125} );
      // expect(newCommunity.Cities.).toEqual(4);
   })
