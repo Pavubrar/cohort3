@@ -14,8 +14,9 @@ movedIn(num){
 }
 movedOut(num){
     if((this.population - num) >= 0){
-    return this.population -= num; 
-    //console.log(this.population  + " decrease ");
+    this.population =  this.population - num;
+    return this.population; 
+    console.log(this.population  + " decrease ");
     }else
     return "Population can not be less than 0";
 }
