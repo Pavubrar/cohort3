@@ -1,4 +1,4 @@
-import {Community} from './cities'
+import Community from './cities'
 import serverFunctions from './serverFunction'
 
 describe('Class methods update on server using API CRUD functionality', ()=>{
