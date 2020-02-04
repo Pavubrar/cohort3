@@ -1,58 +1,49 @@
-import React, {useState} from 'react';
-import {Stack, Queue} from './lifo-fifo'
+import React, { useState } from 'react';
+import { Stack, Queue } from './lifo-fifo'
 import './lifo-fifo.css';
- const lifo =new Stack();
- const fifo = new Queue();
- const initialList = ["🍇","🍈","🍉","🍊","🍌","🍍","🍎","🍑","🍒","🍐","🍓","🌹"]
+import StackList from './stackList'
+import QueueList from './queueList'
 
- const LifoFifoApp = () => {
-     const [stack, setStack] = useState(lifo.stack);
-     const [queue, setQueue] = useState(fifo.queue);
-     const [list, setList] = useState(initialList[0]);
-     //const [count, setCount] = useState(0)
+const lifo = new Stack();
+const fifo = new Queue();
+const initialList = ["🍇", "🍈", "🍉", "🍊", "🍌", "🍍", "🍎", "🍑", "🍒", "🍐", "🍓", "🌹"]
 
-     const handleAdd =() => {
-         
-         lifo.push();
-         console.log("add clickrd");
-         const stackUpdate = (list.concat());
-         setStack(stackUpdate);
-         console.log("add clickrd");
-         fifo.enqueue();
-         const queueUpdate =(list.concat()) ;
-         setQueue(queueUpdate);
-         
-         //setNext(items.pull())
+const LifoFifoApp = () => {
+    // const [queue, setQueue] = useState();
+    // const [stack, setStack] = useState(lifo);
 
-     }
-     const handleRemove = () => {
-         lifo.pop();
-         const stackUpdate =lifo.stack.slice();
-         setStack(stackUpdate);
-         fifo.dequeue();
-         const queueUpdate = fifo.queue.slice();
-         setQueue(queueUpdate);
+    const [count, setCount] = useState(0)
 
-     }
-     return(
-         <div>
-    <ul>
-        {initialList.map(item => (
-            <li key ={item}> {item}</li>
-                    ))}
-    </ul>
-         <div className="butttons-ui">
-             <button onClick={handleAdd}>Add Item</button>
-             <button onClick={handleRemove}>Remove Item</button>
-         </div>
-         <div className="lists">
-             <h2>Stack</h2>
-             <h3>Upcoming Item</h3>
-             <h2>Queue</h2>
-         </div>
-         </div>
-    
-     )
-     
- }
- export default LifoFifoApp;
+    const handleAdd = () => {
+
+        lifo.push(initialList[count]);
+        console.log(lifo);
+        fifo.enqueue(initialList[count]);
+        console.log(fifo);
+        //  setQueue(fifo.top);
+        setCount(count + 1)
+    }
+    const handleRemove = () => {
+        lifo.pop();
+        console.log(lifo);
+        fifo.dequeue();
+        setCount(count - 1);
+    }
+    return (
+        <div>
+            <div className="butttons-ui">
+                <button onClick={handleAdd}>Add Item</button>
+                <button onClick={handleRemove}>Remove Item</button>
+            </div>
+            <div className="lists">
+                <h2>Stack</h2>
+                <h2>Queue</h2>
+                <StackList list={lifo} />
+                <QueueList list={fifo} />
+            </div>
+        </div>
+
+    )
+
+}
+export default LifoFifoApp;
