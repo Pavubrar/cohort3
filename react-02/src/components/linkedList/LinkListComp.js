@@ -1,8 +1,8 @@
 import React, { useState, Fragment, useEffect, useContext } from "react";
 import "./LinkedList.css";
-//import Button from "react-bootstrap/Button";
+
 import {LinkedList}  from "./LinkedList";
-import {ThemeContext} from './Context.js';
+import {ThemeContext} from '../themeContext/Context';
 
 
 const newList = new LinkedList();
@@ -11,13 +11,10 @@ const LinkedListApp = () => {
     const [subject, setSubject] = useState("");
     const [amount, setAmount] = useState("");
     const [current, setCurrent] = useState("");
-    
     const [total, setTotal] = useState("");
     const [focus, setFocus] = useState("subject");
-    const context = useContext(ThemeContext);
-    // let target = context.targetItem;
-    // let setTarget = context.changeTarget;
-
+    const {isThemeMode, light, dark} = useContext(ThemeContext);
+    const theme = isThemeMode? light : dark;
     useEffect(() => {
         document.getElementById(focus).focus();
     });
@@ -42,7 +39,6 @@ const LinkedListApp = () => {
     const handleInsert = () => {
         newList.add(subject, amount);
         setCurrent(newList.current);
-        //setTarget(newList.current);
         setTotal(newList.total());
         setSubject("");
         setAmount("");
@@ -53,35 +49,30 @@ const LinkedListApp = () => {
     const handleFirst = () => {
         newList.first();
         setCurrent(newList.current);
-        //setTarget(newList.current);
         console.log("first clicked");
     };
 
     const handleLast = () => {
         newList.last();
         setCurrent(newList.current);
-        //setTarget(newList.current);
         console.log("last clicked");
     };
 
     const handleNext = () => {
         newList.next();
         setCurrent(newList.current);
-        //setTarget(newList.current);
         console.log("next clicked");
     };
 
     const handlePrevious = () => {
         newList.prev();
         setCurrent(newList.current);
-        //setTarget(newList.current);
         console.log("previous clicked");
     };
 
     const handleDelete = () => {
         newList.delete();
         setCurrent(newList.current);
-       // setTarget(newList.current);
         setTotal(newList.total());
         console.log("delete clicked");
     };
@@ -118,8 +109,8 @@ const LinkedListApp = () => {
         return listDisplay;
     };
     return (
-        <Fragment>
-            <div id="container">
+        <Fragment >
+            <div id="container" style={{color: theme.syntax, backgroundColor: theme.bg}}>
                 <div id="left">
                     <h2>
                         <strong>Linked Lists Display</strong>

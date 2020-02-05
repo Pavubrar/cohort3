@@ -6,6 +6,7 @@ import serverFunctions from './serverFunction.js';
 import CityServer from './CityServer.js';
 import CityComponent from './CityComponent.js';
 import CityPoint from './CityPoint';
+import {ThemeContext} from '../themeContext/Context';
 
 class CitiesApp extends Component {
     constructor() {
@@ -134,11 +135,21 @@ class CitiesApp extends Component {
     
     render(){
     return (
-    < CityComponent 
-    addCity={this.addCity}
-    renderTools={this.renderTools}
-    renderPoints={this.renderPoints}
-    data ={this.state}/>
+        <ThemeContext.Consumer>
+        {(context) => {
+            const{isThemeMode, light, dark} = context;
+            const theme = isThemeMode? light : dark;
+            return(
+
+        < CityComponent  style ={{background: theme.ui, color: theme.syntax}}
+        addCity={this.addCity}
+        renderTools={this.renderTools}
+        renderPoints={this.renderPoints}
+        data ={this.state}/>
+            )
+        }}
+        </ThemeContext.Consumer>
+            
     
     )
 }

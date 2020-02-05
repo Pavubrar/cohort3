@@ -8,13 +8,20 @@ body {
   padding: 20px;
 }
 
+
 #idGridContainer {
   display: grid;
   grid-template-columns: minmax(375px, 500px) auto;
+  
+  /* background-color: #b8860b ; */
+  
+  border-style: groove;
+  
 }
 
 #idSummaryPanel {
-  background-color: #7d99fe;
+  
+  /* background-color: #b8860b; */
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 4fr;
@@ -23,13 +30,21 @@ body {
   padding: 10px 0px 10px 30px;
   height: 750px;
 }
-
+.topnav{
+  background-color:#dc143c;
+  background: -webkit-linear-gradient(to right, rgb(252, 60, 2), rgb(243, 123, 68) );
+  background: linear-gradient(to right, rgb(252, 60, 2), rgb(243, 123, 68));
+}
+/* #root{
+  background-image: url("C:\Users\Owner\code\cohort3\react-02\src\icons\katie-harp-dRCjgmc4B8I-unsplash.jpg");
+} */
 .hidden {
   visibility: hidden;
 }
 
 .subheading {
   grid-column-start: span 2;
+  color:#006400;
 }
 
 .subheading2 {
@@ -37,11 +52,23 @@ body {
   grid-column-end: 3;
   text-align: left;
   margin-left: 100px;
+  color:#006400;
 }
 
-.form > * > * {
+.form  {
   margin: 5px 10px 0px 0px;
   width: 100px;
+  justify-items: legacy;
+  font-size: larger;
+}
+.form > input{
+  align-self: auto;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: solid black;
 }
 
 #idCreateCityMessage {

@@ -1,21 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Stack, Queue } from './lifo-fifo'
 import './lifo-fifo.css';
 import StackList from './stackList'
 import QueueList from './queueList'
+import {ThemeContext} from '../themeContext/Context';
 
 const lifo = new Stack();
 const fifo = new Queue();
-const initialList = ["🍇", "🍈", "🍉", "🍊", "🍌", "🍍", "🍎", "🍑", "🍒", "🍐", "🍓", "🌹"]
+// const initialList = ["Grapes-🍇", "Lemon-🍈", "Melon-🍉", "Orange-🍊", "Banana🍌", "Pine-Apple🍍", "Apple-🍎", "Peach-🍑", "Cherries-🍒", "Pear-🍐", "Strawberry-🍓", "Rose-🌹"]
+const initialList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
 const LifoFifoApp = () => {
-    // const [queue, setQueue] = useState();
-    // const [stack, setStack] = useState(lifo);
-
     const [count, setCount] = useState(0)
-
+    const {isThemeMode, light, dark} = useContext(ThemeContext);
+    const theme = isThemeMode? light : dark;
     const handleAdd = () => {
-
         lifo.push(initialList[count]);
         console.log(lifo);
         fifo.enqueue(initialList[count]);
@@ -25,13 +24,15 @@ const LifoFifoApp = () => {
     }
     const handleRemove = () => {
         lifo.pop();
-        console.log(lifo);
+
         fifo.dequeue();
+        console.log(fifo);
         setCount(count - 1);
     }
     return (
-        <div>
+        <div style={{color: theme.syntax, backgroundColor: theme.bg}}>
             <div className="butttons-ui">
+                {/* <input className="input" name=" amount" value={amount} onChange ={event => setAmount(event.target.value)}/> */}
                 <button onClick={handleAdd}>Add Item</button>
                 <button onClick={handleRemove}>Remove Item</button>
             </div>
@@ -42,8 +43,6 @@ const LifoFifoApp = () => {
                 <QueueList list={fifo} />
             </div>
         </div>
-
     )
-
 }
 export default LifoFifoApp;

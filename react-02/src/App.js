@@ -1,5 +1,4 @@
 import React from 'react';
-// import logo  from './logo.svg';
 import './App.css';
 import logoIcon from './icons/cog.svg'
 import ticTacToeIcon from './icons/tic-tac-toe.svg'
@@ -12,9 +11,10 @@ import Game from './components/tictactoe/Game';
 import Starter from './components/starter/Starter';
 import AccountApp from './components/accounts/AccountApp';
 import Cities from './components/cities/CitiesApp';
-import Hooks from './components/linkedList/LinkListComp';
-// import Theme from './components/linkedList/LinkListComp';
- import Stack from './components/stack-queue/lifo-fifoApp';
+import Hooks from './components/linkedList/LinkListComp'; 
+import Stack from './components/stack-queue/lifo-fifoApp';
+import {ThemeContextProvider} from './components/themeContext/Context';
+import Theme from './components/themeContext/themeToggle'
 class App extends React.Component {
   constructor() {
     super()
@@ -46,9 +46,9 @@ class App extends React.Component {
       if(this.state.selected === hooksIcon){
       return < Hooks />;
       }
-      // if(this.state.selected === themeIcon){
-      //   return < Theme />;
-      //   }
+      if(this.state.selected === themeIcon){
+        return < Theme />;
+        }
         if(this.state.selected === stackIcon){
           return < Stack />;
           }
@@ -58,25 +58,14 @@ class App extends React.Component {
 
     return (
       <div className="App">
+      <ThemeContextProvider>
+
         <nav className="topnav">
           {this.navIconMapper()}
         </nav>
         {this.showPage()}
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          {/* <ReactLogo className="App-logo" alt="logo" /> */}
-          {/* <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header> */} 
+        
+      </ThemeContextProvider>
       </div>
     );
   }

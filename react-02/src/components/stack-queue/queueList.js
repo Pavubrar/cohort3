@@ -8,7 +8,7 @@ const QueueList = (props) => {
         console.log(counter)
         counter = counter + 1;
         listDisplay.push(
-            <p style={counter === 1 ? border : null} key={counter} className="S-items">{node.data}</p>
+            <p style={counter ===  1 ? border : null} key={counter} className="S-items">{node.data}</p>
         )
         console.log(node)
         node = node.next;

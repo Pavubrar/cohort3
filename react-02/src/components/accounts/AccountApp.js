@@ -3,8 +3,10 @@ import AccountCard from "./AccountCard";
 import { AccountController } from "./Account"
 import './AccountApp.css';
 import AccountForm from './AccountForm';
+import {ThemeContext} from '../themeContext/Context'
 
 class AccountApp extends React.Component {
+    static contextType = ThemeContext;
     constructor() {
         super();
         this.state = {
@@ -60,8 +62,10 @@ class AccountApp extends React.Component {
         });
     }
     render() {
+        const {isThemeMode, light, dark} = this.context;
+        const theme = isThemeMode ? light : dark;
         return (
-            <div id="idGridContainer">
+            <div id="idGridContainer" style ={{background: theme.ui, color: theme.syntax}}>
                 <div id="idSummaryPanel">
                     <h2 className="subheading">Account Summary</h2>
 

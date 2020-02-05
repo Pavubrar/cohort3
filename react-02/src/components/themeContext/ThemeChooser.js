@@ -1,7 +1,7 @@
 import React from "react";
-import { ThemeContext } from "./ThemeContext.js";
+import { ThemeContext } from "./Context.js";
 import "./ThemeChooser.css";
-import Form from "react-bootstrap/Form";
+// import Form from "react-bootstrap/Form";
 
 class ThemeApp extends React.Component {
   static contextType = ThemeContext;
