@@ -88,23 +88,27 @@ const LinkedListApp = () => {
                         id="node-list-current"
                         style={{ color: "green", fontWeight: "bold" }}
                     >
-                        {newNode.subject}: {newNode.amount}
+                     <li>
+
+                     {newNode.subject}: {newNode.amount}
                         {" <-"}
+                     </li>   
                     </div>
                 );
                 newNode = newNode.nextNode;
-            } else {
-                listDisplay.push(
-                    <div
-                        key={newNode.subject + newNode.amount}
-                        id="node-list"
-                        style={{ color: "#808080" }}
-                    >
-                        {newNode.subject}: {newNode.amount}{" "}
-                    </div>
-                );
-                newNode = newNode.PrevNode;
-            }
+            } 
+            //else {
+            //     // listDisplay.push(
+            //     //     <div
+            //     //         key={newNode.subject + newNode.amount}
+            //     //         id="node-list"
+            //     //         style={{ color: "#808080" }}
+            //     //     >
+            //     //         {newNode.subject}: {newNode.amount}{" "}
+            //     //     </div>
+            //     // );
+            //     // newNode = newNode.PrevNode;
+            // }
         }
         return listDisplay;
     };
@@ -176,7 +180,7 @@ const LinkedListApp = () => {
               </span>
                             <p
                                 style={{
-                                    color: "pink"
+                                    color: "black"
                                 }}
                             >
                                 {current
@@ -184,7 +188,10 @@ const LinkedListApp = () => {
                                     : "nothing selected"}
                             </p>
                             <div id="resultsRender">
+                                <ol>
                                 {renderNodes()}
+                                </ol>
+                                    
                                 <span style={{ color: "blue" }}> Total: {total}</span>
                             </div>
                         </div>

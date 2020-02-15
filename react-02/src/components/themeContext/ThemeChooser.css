@@ -8,14 +8,14 @@
   height: 60vmin;
 }
 
-.App-header-theme {
-  background-color: #c0c0c0;
+.ThemeContextProvider {
+  background-color: #e0a7a7;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   vertical-align: top;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(251, 81, 81);
   padding-top: 50px;
 }

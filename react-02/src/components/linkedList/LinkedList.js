@@ -1,7 +1,7 @@
 class ListNode {
     constructor(subject, amount){
         this.subject = subject;
-        this.amount = amount;
+        this.amount = Number(amount);
         this.nextNode = null;
         this.prevNode = null;
     }

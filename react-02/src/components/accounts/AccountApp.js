@@ -3,7 +3,7 @@ import AccountCard from "./AccountCard";
 import { AccountController } from "./Account"
 import './AccountApp.css';
 import AccountForm from './AccountForm';
-import {ThemeContext} from '../themeContext/Context'
+import { ThemeContext } from '../themeContext/Context'
 
 class AccountApp extends React.Component {
     static contextType = ThemeContext;
@@ -62,15 +62,13 @@ class AccountApp extends React.Component {
         });
     }
     render() {
-        const {isThemeMode, light, dark} = this.context;
+        const { isThemeMode, light, dark } = this.context;
         const theme = isThemeMode ? light : dark;
         return (
-            <div id="idGridContainer" style ={{background: theme.ui, color: theme.syntax}}>
+            <div id="idGridContainer" style={{ background: theme.ui, color: theme.syntax }}>
                 <div id="idSummaryPanel">
                     <h2 className="subheading">Account Summary</h2>
-
                     <AccountForm onSubmit={this.addAccount} message={this.state.message} />
-
                     <div id="idReport" className="hidden">
                         <h3>Report</h3>
                         <span>Total Balance: </span><span id="idTotal">{this.state.totalBalance}</span><br />
@@ -78,7 +76,6 @@ class AccountApp extends React.Component {
                         <span>Least Valuable: </span><span id="idLeast">{this.state.leastValuable}</span><br />
                     </div>
                 </div>
-
                 <div id="idCardPanel">
                     <h2>Accounts</h2>
                     {this.renderCards()}

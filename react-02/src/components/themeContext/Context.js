@@ -1,5 +1,7 @@
 import React, {createContext} from 'react';
+import './ThemeChooser.css';
 const ThemeContext = createContext();
+
 class ThemeContextProvider extends React.Component {
     state = {
             fontColor: "red",
