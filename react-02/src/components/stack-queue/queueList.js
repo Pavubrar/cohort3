@@ -16,7 +16,7 @@ const QueueList = (props) => {
     }
     return (
         <div>
-            {listDisplay}
+            {listDisplay }
         </div>
     )
 }

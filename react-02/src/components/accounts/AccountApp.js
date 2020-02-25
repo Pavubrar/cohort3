@@ -13,7 +13,8 @@ class AccountApp extends React.Component {
             totalBalance: "",
             mostValuable: "",
             leastValuable: "",
-            message: ""
+            message: "",
+            balance:""
         }
         this.accountController = new AccountController();
     }
@@ -36,9 +37,10 @@ class AccountApp extends React.Component {
     }
     calcReport = () => {
         this.setState({
-            totalBalance: ""
+            totalBalance: "",
+balance:""
         });
-        if (this.accountController.accountArray.length > 1) {
+        if (this.accountController.accountArray.length >= 1) {
             document.getElementById("idReport").classList.remove("hidden");
             const totalBalanceUpdate = this.accountController.totalAccounts();
             const mostValuableUpdate = this.accountController.mostValuableAccount().accountType;
@@ -51,12 +53,14 @@ class AccountApp extends React.Component {
         } else {
             document.getElementById("idReport").classList.add("hidden");
         }
+        
     }
     renderCards = () => {
         return this.accountController.accountArray.map(account => {
             return <AccountCard
                 key={account.accountType}
                 account={account}
+                balance={account.initialBalance}
                 calcReport={this.calcReport}
                 removeAccount={this.removeAccount} />
         });
@@ -71,9 +75,11 @@ class AccountApp extends React.Component {
                     <AccountForm onSubmit={this.addAccount} message={this.state.message} />
                     <div id="idReport" className="hidden">
                         <h3>Report</h3>
+                        <span>Balance: </span><span id="idBal">{this.state.balance}</span>
                         <span>Total Balance: </span><span id="idTotal">{this.state.totalBalance}</span><br />
                         <span>Most Valuable: </span><span id="idMost">{this.state.mostValuable}</span><br />
                         <span>Least Valuable: </span><span id="idLeast">{this.state.leastValuable}</span><br />
+                        <p></p>
                     </div>
                 </div>
                 <div id="idCardPanel">

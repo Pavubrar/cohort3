@@ -39,7 +39,7 @@ const LifoFifoApp = () => {
             <div className="lists">
                 <h2>Stack</h2>
                 <h2>Queue</h2>
-                <StackList list={lifo} />
+                <StackList list={lifo} style ={{fontSize:'40px'}}/>
                 <QueueList list={fifo} />
             </div>
         </div>

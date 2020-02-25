@@ -8,7 +8,12 @@ class Account {
         this.currentBlance += Math.round(Number(value)*100)/100;
     }
     withdraw(value) {
-        this.currentBlance -= Math.round(Number(value)*100)/100;
+        if (this.currentBlance > 0){
+            this.currentBlance -= Math.round(Number(value)*100)/100;
+        }else{
+            return "Amount exceeds";
+        }
+        
     }
     balance(value) {
         return Math.round(Number(value)*100)/100;
@@ -23,7 +28,7 @@ class AccountController {
             this.accountArray.push(new Account(accountType,Math.round(Number(initialBalance)*100)/100));
            return "";
         } else {
-            return `you already have an ${accountType}, please select different Account Type`
+            return `you already have an ${accountType} named account, please select different Account Type`
         }
     }
     getAccounts(accountType) {

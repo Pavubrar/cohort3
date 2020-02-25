@@ -5,7 +5,9 @@ class AccountCard extends React.Component {
         super(props);
         this.state = {
             account: this.props.account,
-            updateBalanceInput: ""
+            updateBalanceInput: "",
+            currentBalance: this.props.initialbalance,
+            result:""
         }
     }
 
@@ -17,21 +19,32 @@ class AccountCard extends React.Component {
     handleDeposit = () => {
         this.state.account.deposit(this.state.updateBalanceInput);
         this.setState({
-            updateBalanceInput: ""
+            updateBalanceInput: "",
+            result: `Deposited: $ ${this.state.updateBalanceInput}`
         });
         this.props.calcReport();
+
     }
     handleWithdraw = () => {
         this.state.account.withdraw(this.state.updateBalanceInput);
         this.setState({
-            updateBalanceInput: ""
+            updateBalanceInput: "",
+            result: `Withdrawed: $ ${this.state.updateBalanceInput}`
         });
         this.props.calcReport();
     }
-    handleDelete = event => {
+    handleDelete = () => {
         this.props.removeAccount(this.state.account.accountType)
+        this.setState({
+            result: `${this.state.account.accountType} is deleted`
+        })
     }
+    // handleCurrentBalance = () => {
+    //     this.props.balance(this.state.currentBalance)
+
+    // }
     render() {
+        console.log(this.state.account.currentBlance);
         return (
             <div className="card" id="idPrimaryCard">
                 <h3>{this.state.account.accountType} Account</h3> <br />
@@ -43,12 +56,13 @@ class AccountCard extends React.Component {
                         min="0"
                         step="0.01" />
                     </span>
-                    <span> Balance: $</span>
-                    <span id="idBalance">{this.state.account.currentBalance}</span>
-                </label>
+            {/* <span> Balance: $</span> */}
+            <span id="idBalance">Balance: $ {this.state.account.currentBlance}</span>
+                </label><br/>
                 <input type="button" value="Deposit" onClick={this.handleDeposit} />
                 <input type="button" value="Withdraw" onClick={this.handleWithdraw} />
                 <input type="button" value="x" className="delete-button" onClick={this.handleDelete} />
+                <p>{this.state.result}</p>
 
             </div>
         );

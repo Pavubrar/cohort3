@@ -59,12 +59,12 @@ class CitiesApp extends Component {
             }
         }
     }
-    deleteCity = async (key) => {
+    removeCity = async (key) => {
         const errorMessage = await serverFunctions.deleteData(key);
         if (errorMessage) {
             this.showfetchMessage(errorMessage);
         } else {
-            this.province.deleteCity(key);
+            this.province.removeCity(key);
             this.setState({
                 selectedCity: ""
             });

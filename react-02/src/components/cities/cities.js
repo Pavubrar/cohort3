@@ -10,7 +10,7 @@ showCity(){
 return `Name: ${this.name}\nLongitude: ${this.longitude}\nLatitude: ${this.latitude}\nPopulation: ${this.population}`;
 }
 movedIn(num){
-    return this.population += num;
+    return this.population = this.population + Number(num);
 }
 movedOut(num){
     if((this.population - num) >= 0){

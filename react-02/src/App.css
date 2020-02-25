@@ -71,7 +71,7 @@ h1, h2, h3 {color: #09d3ac;}
       
       margin: 25px ;
       height: 100px;
-      background-color: cornflowerblue;
+      background-color:none;
     }
     .icon-img:visited{
       color: red;
