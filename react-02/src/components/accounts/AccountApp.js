@@ -14,7 +14,8 @@ class AccountApp extends React.Component {
             mostValuable: "",
             leastValuable: "",
             message: "",
-            balance:""
+            balance:"",
+            
         }
         this.accountController = new AccountController();
     }
@@ -62,8 +63,14 @@ balance:""
                 account={account}
                 balance={account.initialBalance}
                 calcReport={this.calcReport}
-                removeAccount={this.removeAccount} />
+                removeAccount={this.removeAccount}
+                displayMessage={this.displayMessage} />
         });
+    }
+    displayMessage = (resultDel) => {
+        this.setState({message: resultDel})
+        console.log(this.state);
+        
     }
     render() {
         const { isThemeMode, light, dark } = this.context;
@@ -83,7 +90,8 @@ balance:""
                     </div>
                 </div>
                 <div id="idCardPanel">
-                    <h2>Accounts</h2>
+                    <h2>Accounts</h2><br/>
+                    <span style={{color:"black"}}>{this.state.message}</span>
                     {this.renderCards()}
 
                 </div>

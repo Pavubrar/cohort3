@@ -7,7 +7,9 @@ class AccountCard extends React.Component {
             account: this.props.account,
             updateBalanceInput: "",
             currentBalance: this.props.initialbalance,
-            result:""
+            result:"",
+            result: "",
+            resultDel: ""
         }
     }
 
@@ -36,8 +38,11 @@ class AccountCard extends React.Component {
     handleDelete = () => {
         this.props.removeAccount(this.state.account.accountType)
         this.setState({
-            result: `${this.state.account.accountType} is deleted`
+            resultDel: `${this.state.account.accountType} is deleted`
         })
+        this.props.displayMessage(this.state.resultDel)
+        console.log(this.state.resultDel);
+        
     }
     // handleCurrentBalance = () => {
     //     this.props.balance(this.state.currentBalance)

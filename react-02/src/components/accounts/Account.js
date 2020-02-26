@@ -8,11 +8,14 @@ class Account {
         this.currentBlance += Math.round(Number(value)*100)/100;
     }
     withdraw(value) {
-        if (this.currentBlance > 0){
-            this.currentBlance -= Math.round(Number(value)*100)/100;
-        }else{
-            return "Amount exceeds";
-        }
+         
+          let updatedBal =  this.currentBlance - Math.round(Number(value)*100)/100
+          if(updatedBal >= 0){
+            return this.currentBlance = updatedBal
+            }else {
+                return"invalid amount"
+            }
+       
         
     }
     balance(value) {
@@ -33,6 +36,7 @@ class AccountController {
     }
     getAccounts(accountType) {
         return this.accountArray.filter(account => account.accountType === accountType)[0];
+    
     }
     removeAccount(accountType) {
         this.accountArray = this.accountArray.filter((account) => account.accountType !== accountType);
