@@ -4,9 +4,10 @@ const StackList =(props) => {
     let node = props.list.first;
     let counter = 0;
     let border = { borderColor: "black", borderStyle: "solid"}
+    console.log(node)
     while(props.list.first && node){
-        console.log(counter)
-        counter = counter + 1;
+        // console.log(counter)
+         counter = counter + 1;
         listDisplay. push(
             <p style={counter === 1 ? border : null} key ={counter} className= "S-items">{node.data}</p>
         )

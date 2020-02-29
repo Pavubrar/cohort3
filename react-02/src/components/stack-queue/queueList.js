@@ -4,7 +4,7 @@ const QueueList = (props) => {
     let node = props.list.first;
     let counter = 0;
     let border = { borderColor: "black", borderStyle: "solid" }
-    while (props.list.first && node) {
+    while (props.list.first && node ) {
         console.log(counter)
         counter = counter + 1;
         listDisplay.push(

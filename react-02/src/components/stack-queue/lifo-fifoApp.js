@@ -8,26 +8,31 @@ import {ThemeContext} from '../themeContext/Context';
 const lifo = new Stack();
 const fifo = new Queue();
 // const initialList = ["Grapes-🍇", "Lemon-🍈", "Melon-🍉", "Orange-🍊", "Banana🍌", "Pine-Apple🍍", "Apple-🍎", "Peach-🍑", "Cherries-🍒", "Pear-🍐", "Strawberry-🍓", "Rose-🌹"]
-const initialList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+const initialList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 const LifoFifoApp = () => {
     const [count, setCount] = useState(0)
+    const [delCount, setDelCount] = useState(0)
     const {isThemeMode, light, dark} = useContext(ThemeContext);
     const theme = isThemeMode? light : dark;
     const handleAdd = () => {
+        if(count < initialList.length){
         lifo.push(initialList[count]);
-        console.log(lifo);
+        console.log(lifo, 'lifo');
         fifo.enqueue(initialList[count]);
-        console.log(fifo);
+        console.log(fifo, 'fifo');
         //  setQueue(fifo.top);
+        
         setCount(count + 1)
+            console.log("COUNT: ", count)
+        }
     }
     const handleRemove = () => {
         lifo.pop();
 
         fifo.dequeue();
         console.log(fifo);
-        setCount(count - 1);
+        setDelCount(delCount + 1);
     }
     return (
         <div style={{color: theme.syntax, backgroundColor: theme.bg}}>
