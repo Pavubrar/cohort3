@@ -242,8 +242,8 @@ for x in range(2, 30, 2):
    x = len(fruits) # to get the length of array
 
     # Adding into array
-    friuts.append("mango")
-    fruits.insert(1, "pineapple")
+    friuts.append("mango") # add to the end
+    fruits.insert(1, "pineapple")  # add to the front
 fruits[1] = "blackcurrant" # replacing the valur at given index value
 
 # Removing from array
